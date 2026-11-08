@@ -257,9 +257,17 @@ body {
 }
 
 .hero h1 {
-    font-family: 'Great Vibes', cursive;
-    font-size: 6rem;
-    color: #9fd3ff;
+
+    font-family:'Great Vibes', cursive;
+
+    font-size:6rem;
+
+    color:white;
+
+    text-shadow:
+        0 0 10px rgba(255,255,255,.9),
+        0 0 20px rgba(147,197,253,.8),
+        0 0 40px rgba(96,165,250,.6);
 }
 
 .hero p {
@@ -275,7 +283,46 @@ body {
 ========================== */
 
 .card {
-    width: 90%;
-    max-width: 800px;
 
-    margin: 30px
+    width: 90%;
+
+    max-width: 850px;
+
+    margin: 40px auto;
+
+    padding: 45px;
+
+    text-align: center;
+
+    border-radius: 30px;
+
+    background: rgba(255,255,255,.12);
+
+    backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255,255,255,.20);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.35);
+}
+.card h3::after {
+
+    content: "";
+
+    display: block;
+
+    width: 120px;
+
+    height: 2px;
+
+    margin: 15px auto 0;
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            gold,
+            transparent
+        );
+}
+
