@@ -213,17 +213,23 @@ body {
 ========================== */
 
 #content {
+
     display: none;
 
     min-height: 100vh;
 
     background:
         linear-gradient(
-            180deg,
-            #021024,
-            #052659,
-            #021024
-        );
+            rgba(2,16,36,.90),
+            rgba(5,38,89,.92)
+        ),
+        url("portada.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-attachment: fixed;
 }
 
 /* ==========================
