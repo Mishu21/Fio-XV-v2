@@ -1,147 +1,152 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Fiorella Duarte | Mis 15 Años</title>
+<title>Mis 15 Años - Fiorella</title>
 
-    <link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<audio id="music" loop>
-    <source src="music.mp3" type="audio/mpeg">
-</audio>
+<div class="fog"></div>
 
-<div id="intro">
+<div class="cover">
 
-    <picture>
-        <source
-            media="(min-width: 768px)"
-            srcset="portada-desktop.jpg">
+    <div class="silver-frame">
 
-        <img
-            src="portada-mobile.jpg"
-            class="portada"
-            alt="Portada">
-    </picture>
+        <div class="hero-content">
 
-    <div class="intro-overlay"></div>
+            <p class="subtitle">Mis 15 años</p>
 
-</div>
+            <h1>Fiorella</h1>
 
-<div id="content">
-
-    <canvas id="particles"></canvas>
-
-    <div class="invitation-card">
-
-        <h2>MIS 15 AÑOS</h2>
-
-        <h1>Fiorella Duarte</h1>
-
-        <p class="intro-text">
-            Te invito a compartir una noche mágica e inolvidable.
-        </p>
-
-        <div class="section">
-
-            <h3>📅 Fecha</h3>
-
-            <p>Sábado 20 de Marzo de 2027</p>
-            <p>22:00 Hs.</p>
-
-        </div>
-
-        <div class="section">
-
-            <h3>📍 Lugar</h3>
-
-            <p>Moreno, Buenos Aires</p>
-
-        </div>
-
-        <div class="section">
-
-            <h3>⏳ Cuenta Regresiva</h3>
-
-            <div id="countdown">
-
-                <div>
-                    <span id="days">0</span>
-                    <small>DÍAS</small>
-                </div>
-
-                <div>
-                    <span id="hours">0</span>
-                    <small>HORAS</small>
-                </div>
-
-                <div>
-                    <span id="minutes">0</span>
-                    <small>MIN</small>
-                </div>
-
-                <div>
-                    <span id="seconds">0</span>
-                    <small>SEG</small>
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="section">
-
-            <h3>👗 Dress Code</h3>
-
-            <p>Elegante</p>
-
-        </div>
-
-        <div class="section">
-
-            <h3>🎁 Mesa de Regalos</h3>
-
-            <p>Si querés hacerme un regalo:</p>
-
-            <div class="gift-box">
-                frio.xv.ejemplo
-            </div>
-
-            <button class="btn" onclick="copyAlias()">
-                Copiar Alias
+            <button id="openInvitation">
+                ✨ Abrir Invitación ✨
             </button>
 
-        </div>
-
-        <div class="section">
-
-            <h3>✅ Confirmación</h3>
-
-            <a
-                class="btn"
-                target="_blank"
-                href="https://wa.me/541123199850?text=Hola%20Fiorella,%20confirmo%20mi%20asistencia%20a%20tus%2015%20años%20💜">
-
-                Confirmar Asistencia
-
-            </a>
-
-        </div>
-
-        <div class="signature">
-            💜 Te espero 💜
         </div>
 
     </div>
 
 </div>
+
+<main id="invitationContent">
+
+    <section>
+        <h2>La Cuenta Regresiva Comenzó</h2>
+
+        <div id="countdown">
+
+            <div class="time-box">
+                <span id="days">0</span>
+                <small>Días</small>
+            </div>
+
+            <div class="time-box">
+                <span id="hours">0</span>
+                <small>Horas</small>
+            </div>
+
+            <div class="time-box">
+                <span id="minutes">0</span>
+                <small>Minutos</small>
+            </div>
+
+            <div class="time-box">
+                <span id="seconds">0</span>
+                <small>Segundos</small>
+            </div>
+
+        </div>
+    </section>
+
+    <section>
+
+        <h2>Fecha</h2>
+
+        <p>27 de Marzo de 2027</p>
+
+        <p>Desde las 09:00 PM hasta las 05:00 AM</p>
+
+    </section>
+
+    <section>
+
+        <h2>¿Dónde se festeja?</h2>
+
+        <p>
+            Quinta Oasis<br>
+            Los Olmos 3581<br>
+            La Reja Grande
+        </p>
+
+    </section>
+
+    <section>
+
+        <h2>Dress Code</h2>
+
+        <p>Elegante Sport</p>
+
+        <p class="important">
+            Se solicita evitar los tonos rojo, bordó,
+            vino, granate, cereza y plateado.
+        </p>
+
+    </section>
+
+    <section>
+
+        <h2>Regalo</h2>
+
+        <p>
+            Lo más importante es tu presencia,
+            pero si querés hacerme un regalo
+            te dejo mis datos bancarios.
+            ¡Muchas gracias!
+        </p>
+
+        <div class="alias-card">
+
+            <p><strong>Alias</strong></p>
+
+            <p>fydiaz.27.mp</p>
+
+            <p>
+                Yanina Fiorella Díaz Franco
+            </p>
+
+        </div>
+
+    </section>
+
+    <section>
+
+        <h2>Confirmar Asistencia</h2>
+
+        <p>
+            Confirmá antes del 19 de Marzo
+        </p>
+
+        <a
+            class="btn-confirm"
+            href="https://wa.me/54911XXXXXXXXXX"
+            target="_blank">
+
+            Confirmar asistencia
+
+        </a>
+
+    </section>
+
+</main>
+
+<div id="particles"></div>
 
 <script src="script.js"></script>
 
