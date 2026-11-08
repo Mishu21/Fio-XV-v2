@@ -1,38 +1,37 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-    background:#021024;
-    font-family:'Montserrat',sans-serif;
-    overflow-x:hidden;
-    color:white;
+body {
+    background: #021024;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+    color: white;
 }
 
-/* -------------------------
+/* ==========================
    PANTALLA INICIAL
---------------------------*/
+========================== */
 
-#intro{
-    position:fixed;
-    inset:0;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    overflow:hidden;
-    z-index:9999;
+#intro {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 9999;
 }
 
-.portada{
-    position:absolute;
-    inset:0;
-
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
+.portada {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
 
     transition:
         transform 2.8s ease,
@@ -40,197 +39,183 @@ body{
         filter 2.8s ease;
 }
 
-/* -------------------------
+/* ==========================
    ESTRELLAS
---------------------------*/
+========================== */
 
-.stars{
-
-    position:absolute;
-    inset:0;
+.stars {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
 
     background-image:
         radial-gradient(
-            rgba(255,255,255,.9) 1px,
+            rgba(255,255,255,.8) 1px,
             transparent 1px
         );
 
-    background-size:60px 60px;
+    background-size: 80px 80px;
+    opacity: .25;
 
-    opacity:.35;
+    animation: twinkle 4s infinite alternate;
 
-    animation:
-        twinkle 5s infinite alternate;
-
-    pointer-events:none;
+    pointer-events: none;
 }
 
-@keyframes twinkle{
-
-    0%{
-        opacity:.15;
+@keyframes twinkle {
+    from {
+        opacity: .15;
     }
 
-    100%{
-        opacity:.5;
+    to {
+        opacity: .35;
     }
 }
 
-/* -------------------------
-   LUZ MAGICA DE LA PUERTA
---------------------------*/
+/* ==========================
+   LUZ MAGICA
+========================== */
 
-.magic-light{
+.magic-light {
+    position: absolute;
 
-    position:absolute;
+    left: 50%;
+    top: 50%;
 
-    left:50%;
-    top:50%;
+    width: 12px;
+    height: 0;
 
-    width:10px;
-    height:0;
+    transform: translate(-50%, -50%);
 
-    transform:translate(-50%,-50%);
+    z-index: 4;
 
-    background:white;
+    opacity: 0;
 
-    opacity:0;
+    border-radius: 999px;
 
-    border-radius:50px;
+    background: white;
 
     box-shadow:
-        0 0 30px #ffffff,
-        0 0 80px #93c5fd,
-        0 0 150px #60a5fa,
-        0 0 250px #3b82f6,
-        0 0 400px rgba(255,255,255,.9);
+        0 0 25px #fff,
+        0 0 60px #93c5fd,
+        0 0 120px #60a5fa,
+        0 0 220px #3b82f6;
 
-    pointer-events:none;
+    pointer-events: none;
 }
 
-/* -------------------------
+/* ==========================
    NIEBLA
---------------------------*/
+========================== */
 
-.fog{
+.fog {
+    position: absolute;
 
-    position:absolute;
+    left: 0;
+    bottom: 0;
 
-    left:0;
-    bottom:-80px;
+    width: 100%;
+    height: 220px;
 
-    width:100%;
-    height:320px;
-
-    background:
-        radial-gradient(
-            ellipse at center,
-            rgba(255,255,255,.45) 0%,
-            rgba(255,255,255,.25) 35%,
-            rgba(255,255,255,.12) 60%,
-            transparent 100%
-        );
-
-    filter:blur(45px);
-
-    opacity:.55;
-
-    animation:fogMove 12s ease-in-out infinite;
-
-    pointer-events:none;
-}
-
-@keyframes fogMove{
-
-    0%{
-        transform:translateX(-30px);
-    }
-
-    50%{
-        transform:translateX(30px);
-    }
-
-    100%{
-        transform:translateX(-30px);
-    }
-
-}
-
-/* -------------------------
-   BOTON PRINCIPAL
---------------------------*/
-
-#openBtn{
-
-    position:relative;
-    z-index:20;
-
-    padding:18px 42px;
-
-    border-radius:50px;
-
-    border:1px solid rgba(255,255,255,.4);
+    z-index: 3;
 
     background:
         linear-gradient(
-            135deg,
-            rgba(255,255,255,.22),
-            rgba(255,255,255,.08)
+            to top,
+            rgba(255,255,255,.35),
+            rgba(255,255,255,.15),
+            transparent
         );
 
-    backdrop-filter:blur(15px);
+    filter: blur(35px);
 
-    color:white;
+    animation: fogMove 10s ease-in-out infinite;
 
-    font-size:18px;
-    font-weight:600;
-
-    cursor:pointer;
-
-    transition:.3s;
+    pointer-events: none;
 }
 
-#openBtn:hover{
+@keyframes fogMove {
+    0% {
+        transform: translateX(-20px);
+    }
 
-    transform:translateY(-2px);
+    50% {
+        transform: translateX(20px);
+    }
+
+    100% {
+        transform: translateX(-20px);
+    }
+}
+
+/* ==========================
+   BOTON ABRIR
+========================== */
+
+#openBtn {
+    position: absolute;
+
+    bottom: 80px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    z-index: 10;
+
+    padding: 18px 40px;
+
+    border: 1px solid rgba(255,255,255,.35);
+
+    border-radius: 999px;
+
+    background: rgba(255,255,255,.15);
+
+    backdrop-filter: blur(12px);
+
+    color: white;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+#openBtn:hover {
+    transform: translateX(-50%) scale(1.05);
 
     box-shadow:
         0 0 25px rgba(255,255,255,.35);
 }
 
-/* -------------------------
-   EFECTO DE APERTURA
---------------------------*/
+/* ==========================
+   ANIMACION APERTURA
+========================== */
 
-.abrir .portada{
-
-    transform:scale(1.30);
-
-    opacity:0;
+.abrir .portada {
+    transform: scale(1.25);
+    opacity: 0;
 
     filter:
         brightness(1.4)
-        saturate(1.25);
+        saturate(1.2);
 }
 
-.abrir .magic-light{
-
-    height:120vh;
-
-    opacity:1;
-
-    transition:2.2s ease;
+.abrir .magic-light {
+    height: 120vh;
+    opacity: 1;
+    transition: 2s ease;
 }
 
-/* -------------------------
+/* ==========================
    CONTENIDO
---------------------------*/
+========================== */
 
-#content{
+#content {
+    display: none;
 
-    display:none;
-
-    min-height:100vh;
+    min-height: 100vh;
 
     background:
         linear-gradient(
@@ -241,214 +226,49 @@ body{
         );
 }
 
-/* -------------------------
+/* ==========================
    HERO
---------------------------*/
+========================== */
 
-.hero{
+.hero {
+    min-height: 100vh;
 
-    min-height:100vh;
+    display: flex;
+    flex-direction: column;
 
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
+    justify-content: center;
+    align-items: center;
 
-    text-align:center;
+    text-align: center;
 
-    padding:30px;
+    padding: 30px;
 }
 
-.hero h2{
-    letter-spacing:6px;
-    margin-bottom:10px;
+.hero h2 {
+    letter-spacing: 6px;
+    margin-bottom: 10px;
 }
 
-.hero h1{
-
-    font-family:'Great Vibes',cursive;
-
-    font-size:6rem;
-
-    color:#9fd3ff;
+.hero h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 6rem;
+    color: #9fd3ff;
 }
 
-.hero p{
+.hero p {
+    max-width: 700px;
+    margin-top: 30px;
 
-    max-width:700px;
-
-    margin-top:30px;
-
-    line-height:1.8;
-
-    font-size:1.1rem;
+    line-height: 1.8;
+    font-size: 1.1rem;
 }
 
-/* -------------------------
+/* ==========================
    TARJETAS
---------------------------*/
+========================== */
 
-.card{
+.card {
+    width: 90%;
+    max-width: 800px;
 
-    width:90%;
-    max-width:800px;
-
-    margin:30px auto;
-
-    padding:40px;
-
-    border-radius:30px;
-
-    background:rgba(255,255,255,.08);
-
-    backdrop-filter:blur(25px);
-
-    box-shadow:
-        0 8px 30px rgba(0,0,0,.25);
-
-    text-align:center;
-}
-
-.card h3{
-
-    color:#9fd3ff;
-
-    margin-bottom:20px;
-}
-
-.card p{
-
-    line-height:1.8;
-}
-
-/* -------------------------
-   COUNTDOWN
---------------------------*/
-
-#countdown{
-
-    display:flex;
-
-    justify-content:center;
-
-    gap:25px;
-
-    flex-wrap:wrap;
-}
-
-#countdown div{
-    min-width:120px;
-}
-
-#countdown span{
-
-    display:block;
-
-    font-size:3rem;
-
-    font-weight:bold;
-
-    color:#60a5fa;
-}
-
-/* -------------------------
-   ALIAS
---------------------------*/
-
-.alias{
-
-    margin-top:20px;
-
-    padding:18px;
-
-    border-radius:15px;
-
-    background:rgba(255,255,255,.10);
-
-    font-weight:bold;
-
-    font-size:1.2rem;
-}
-
-/* -------------------------
-   BOTONES
---------------------------*/
-
-.btn{
-
-    display:inline-block;
-
-    margin-top:20px;
-
-    padding:15px 25px;
-
-    text-decoration:none;
-
-    color:white;
-
-    border-radius:50px;
-
-    background:
-        linear-gradient(
-            45deg,
-            #2563eb,
-            #60a5fa
-        );
-
-    transition:.3s;
-}
-
-.btn:hover{
-
-    transform:translateY(-2px);
-
-    box-shadow:
-        0 0 25px rgba(96,165,250,.5);
-}
-
-/* -------------------------
-   FOOTER
---------------------------*/
-
-footer{
-
-    padding:80px 20px;
-
-    text-align:center;
-}
-
-footer h2{
-
-    font-family:'Great Vibes',cursive;
-
-    font-size:4rem;
-
-    color:#9fd3ff;
-
-    margin-top:20px;
-}
-
-/* -------------------------
-   RESPONSIVE
---------------------------*/
-
-@media(max-width:768px){
-
-    .hero h1{
-        font-size:4rem;
-    }
-
-    #countdown div{
-        min-width:90px;
-    }
-
-    #countdown span{
-        font-size:2.4rem;
-    }
-
-    #openBtn{
-        font-size:16px;
-        padding:16px 30px;
-    }
-
-}
+    margin: 30px
