@@ -1,9 +1,9 @@
-/* ========================= */
-/* APERTURA DE INVITACION */
-/* ========================= */
+/* ================================= */
+/* APERTURA DE LA INVITACION */
+/* ================================= */
 
 const cover = document.getElementById("cover");
-const contenido = document.getElementById("invitationContent");
+const invitationContent = document.getElementById("invitationContent");
 
 cover.addEventListener("click", () => {
 
@@ -14,23 +14,23 @@ cover.addEventListener("click", () => {
 
         cover.style.display = "none";
 
-        contenido.style.display = "block";
+        invitationContent.style.display = "block";
+
+        activateAnimations();
 
         window.scrollTo({
             top: 0,
             behavior: "smooth"
         });
 
-        activateAnimations();
-
     }, 1500);
 
 });
 
 
-/* ========================= */
+/* ================================= */
 /* CUENTA REGRESIVA */
-/* ========================= */
+/* ================================= */
 
 const targetDate = new Date(
     "March 27, 2027 21:00:00"
@@ -57,18 +57,18 @@ function updateCountdown() {
     );
 
     const hours = Math.floor(
-        (distance % (1000 * 60 * 60 * 24)) /
-        (1000 * 60 * 60)
+        (distance % (1000 * 60 * 60 * 24))
+        / (1000 * 60 * 60)
     );
 
     const minutes = Math.floor(
-        (distance % (1000 * 60 * 60)) /
-        (1000 * 60)
+        (distance % (1000 * 60 * 60))
+        / (1000 * 60)
     );
 
     const seconds = Math.floor(
-        (distance % (1000 * 60)) /
-        1000
+        (distance % (1000 * 60))
+        / 1000
     );
 
     document.getElementById("days").textContent = days;
@@ -81,62 +81,73 @@ updateCountdown();
 setInterval(updateCountdown, 1000);
 
 
-/* ========================= */
+/* ================================= */
 /* PARTICULAS MAGICAS */
-/* ========================= */
+/* ================================= */
 
-const particles = document.getElementById("particles");
+const particlesContainer =
+document.getElementById("particles");
 
 for (let i = 0; i < 180; i++) {
 
-    const particle = document.createElement("div");
+    const particle =
+    document.createElement("div");
 
     particle.classList.add("particle");
 
     particle.style.left =
-        Math.random() * 100 + "%";
+    Math.random() * 100 + "%";
 
     particle.style.top =
-        Math.random() * 100 + "%";
+    Math.random() * 100 + "%";
 
     particle.style.animationDuration =
-        (8 + Math.random() * 10) + "s";
+    (8 + Math.random() * 10) + "s";
 
     particle.style.animationDelay =
-        (Math.random() * 10) + "s";
+    Math.random() * 10 + "s";
 
     particle.style.opacity =
-        (0.3 + Math.random() * 0.7);
+    0.2 + Math.random() * 0.8;
 
-    particles.appendChild(particle);
+    particlesContainer.appendChild(particle);
+
 }
 
 
-/* ========================= */
-/* APARICION DE SECCIONES */
-/* ========================= */
+/* ================================= */
+/* ANIMACION DE SECCIONES */
+/* ================================= */
 
 function activateAnimations() {
 
     const sections =
-        document.querySelectorAll(".fade-section");
+    document.querySelectorAll(".fade-section");
 
     const observer =
-        new IntersectionObserver((entries) => {
+    new IntersectionObserver(
+
+        (entries) => {
 
             entries.forEach(entry => {
 
                 if (entry.isIntersecting) {
 
-                    entry.target.classList.add("visible");
+                    entry.target.classList.add(
+                        "visible"
+                    );
 
                 }
 
             });
 
-        }, {
-            threshold: 0.20
-        });
+        },
+
+        {
+            threshold: 0.15
+        }
+
+    );
 
     sections.forEach(section => {
 
@@ -147,9 +158,9 @@ function activateAnimations() {
 }
 
 
-/* ========================= */
+/* ================================= */
 /* COPIAR ALIAS */
-/* ========================= */
+/* ================================= */
 
 function copyAlias() {
 
@@ -157,44 +168,20 @@ function copyAlias() {
         "fydiaz.27.mp"
     );
 
-    const boton =
-        document.querySelector(".copy-btn");
+    const button =
+    document.querySelector(".btn-copy, .btn");
 
-    const textoOriginal =
-        boton.innerHTML;
+    const originalText =
+    button.innerHTML;
 
-    boton.innerHTML =
-        "✅ Alias copiado";
+    button.innerHTML =
+    "✅ Alias Copiado";
 
     setTimeout(() => {
 
-        boton.innerHTML =
-            textoOriginal;
+        button.innerHTML =
+        originalText;
 
     }, 2500);
 
 }
-
-
-/* ========================= */
-/* PARALLAX SUAVE */
-/* ========================= */
-
-window.addEventListener("scroll", () => {
-
-    const scenes =
-        document.querySelectorAll(".scene");
-
-    scenes.forEach(scene => {
-
-        const speed = 0.15;
-
-        const offset =
-            window.pageYOffset;
-
-        scene.style.backgroundPositionY =
-            -(offset * speed) + "px";
-
-    });
-
-});
