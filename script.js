@@ -7,12 +7,13 @@ const contenido = document.getElementById("invitationContent");
 
 cover.addEventListener("click", () => {
 
-    cover.style.transition = "opacity 1.2s ease";
+    cover.style.transition = "opacity 1.5s ease";
     cover.style.opacity = "0";
 
     setTimeout(() => {
 
         cover.style.display = "none";
+
         contenido.style.display = "block";
 
         window.scrollTo({
@@ -20,7 +21,9 @@ cover.addEventListener("click", () => {
             behavior: "smooth"
         });
 
-    }, 1200);
+        activateAnimations();
+
+    }, 1500);
 
 });
 
@@ -72,11 +75,9 @@ function updateCountdown() {
     document.getElementById("hours").textContent = hours;
     document.getElementById("minutes").textContent = minutes;
     document.getElementById("seconds").textContent = seconds;
-
 }
 
 updateCountdown();
-
 setInterval(updateCountdown, 1000);
 
 
@@ -86,7 +87,7 @@ setInterval(updateCountdown, 1000);
 
 const particles = document.getElementById("particles");
 
-for (let i = 0; i < 140; i++) {
+for (let i = 0; i < 180; i++) {
 
     const particle = document.createElement("div");
 
@@ -99,12 +100,49 @@ for (let i = 0; i < 140; i++) {
         Math.random() * 100 + "%";
 
     particle.style.animationDuration =
-        (5 + Math.random() * 8) + "s";
+        (8 + Math.random() * 10) + "s";
 
     particle.style.animationDelay =
-        (Math.random() * 5) + "s";
+        (Math.random() * 10) + "s";
+
+    particle.style.opacity =
+        (0.3 + Math.random() * 0.7);
 
     particles.appendChild(particle);
+}
+
+
+/* ========================= */
+/* APARICION DE SECCIONES */
+/* ========================= */
+
+function activateAnimations() {
+
+    const sections =
+        document.querySelectorAll(".fade-section");
+
+    const observer =
+        new IntersectionObserver((entries) => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("visible");
+
+                }
+
+            });
+
+        }, {
+            threshold: 0.20
+        });
+
+    sections.forEach(section => {
+
+        observer.observe(section);
+
+    });
 
 }
 
@@ -119,6 +157,44 @@ function copyAlias() {
         "fydiaz.27.mp"
     );
 
-    alert("Alias copiado correctamente");
+    const boton =
+        document.querySelector(".copy-btn");
+
+    const textoOriginal =
+        boton.innerHTML;
+
+    boton.innerHTML =
+        "✅ Alias copiado";
+
+    setTimeout(() => {
+
+        boton.innerHTML =
+            textoOriginal;
+
+    }, 2500);
 
 }
+
+
+/* ========================= */
+/* PARALLAX SUAVE */
+/* ========================= */
+
+window.addEventListener("scroll", () => {
+
+    const scenes =
+        document.querySelectorAll(".scene");
+
+    scenes.forEach(scene => {
+
+        const speed = 0.15;
+
+        const offset =
+            window.pageYOffset;
+
+        scene.style.backgroundPositionY =
+            -(offset * speed) + "px";
+
+    });
+
+});
