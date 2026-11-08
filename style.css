@@ -4,162 +4,192 @@
     box-sizing:border-box;
 }
 
+:root{
+
+    --silver:#d8d8d8;
+    --silver-dark:#bcbcbc;
+
+    --red:#8d1020;
+    --dark-red:#5d0914;
+
+    --glass:rgba(255,255,255,.08);
+
+    --white:#ffffff;
+
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
 body{
-    font-family:'Montserrat',sans-serif;
+
+    background:#030609;
+
     color:white;
+
     overflow-x:hidden;
+
+    font-family:'Cormorant Garamond', serif;
+
+    font-style:italic;
+
 }
 
 /* PORTADA */
 
-#intro{
-    position:fixed;
-    inset:0;
-    z-index:9999;
-    cursor:pointer;
-}
+.cover{
 
-.portada{
-    width:100%;
     height:100vh;
-    object-fit:cover;
-    display:block;
-
-    transition:
-        transform 2s ease,
-        opacity 2s ease;
-}
-
-.intro-overlay{
-    position:absolute;
-    inset:0;
 
     background:
-        radial-gradient(
-            rgba(255,255,255,.05),
-            transparent
-        );
+    linear-gradient(
+    rgba(0,0,0,.45),
+    rgba(0,0,0,.55)),
+    url("portada-mobile.jpg");
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    animation:zoomBackground 30s infinite alternate;
 }
 
-.abrir .portada{
-    transform:scale(1.15);
-    opacity:0;
+@keyframes zoomBackground{
+
+    from{
+        background-size:100%;
+    }
+
+    to{
+        background-size:115%;
+    }
 }
 
-/* CONTENIDO */
+.silver-frame{
 
-#content{
+    border:5px solid var(--silver);
+
+    padding:40px;
+
+    width:90%;
+
+    max-width:650px;
+
+    background:rgba(0,0,0,.25);
+
+    backdrop-filter:blur(2px);
+
+}
+
+.hero-content{
+
+    text-align:center;
+
+}
+
+.subtitle{
+
+    font-size:2rem;
+
+    letter-spacing:2px;
+
+    margin-bottom:20px;
+
+}
+
+h1{
+
+    font-family:'Great Vibes', cursive;
+
+    font-size:6rem;
+
+    color:white;
+
+    text-shadow:
+        0 0 15px white,
+        0 0 30px rgba(255,255,255,.8);
+
+}
+
+#openInvitation{
+
+    margin-top:30px;
+
+    padding:18px 40px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:
+    linear-gradient(
+    135deg,
+    #ffffff,
+    #d0d0d0);
+
+    font-size:1.1rem;
+
+    cursor:pointer;
+
+}
+
+/* SECCIONES */
+
+main{
 
     display:none;
 
-    position:relative;
-
-    min-height:100vh;
-
-    padding:80px 20px;
-
-    background:
-        linear-gradient(
-            rgba(24,8,45,.90),
-            rgba(24,8,45,.95)
-        ),
-        url("portada-desktop.jpg");
-
-    background-position:center;
-    background-size:cover;
-    background-attachment:fixed;
-}
-
-#particles{
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-}
-
-.invitation-card{
-
-    position:relative;
-    z-index:10;
-
-    width:90%;
     max-width:900px;
 
     margin:auto;
 
-    padding:60px;
+    padding:60px 20px;
+
+}
+
+section{
+
+    margin-bottom:35px;
+
+    padding:30px;
+
+    border-radius:25px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(8px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+}
+
+h2{
 
     text-align:center;
 
-    border-radius:40px;
-
-    background:
-        rgba(255,255,255,.12);
-
-    backdrop-filter:blur(20px);
-
-    border:
-        1px solid rgba(255,255,255,.15);
-
-    box-shadow:
-        0 20px 60px rgba(0,0,0,.40);
-}
-
-.invitation-card h2{
-
-    letter-spacing:6px;
-    margin-bottom:15px;
-}
-
-.invitation-card h1{
-
-    font-family:'Great Vibes',cursive;
-
-    font-size:5rem;
-
-    color:#fff;
-
-    text-shadow:
-        0 0 20px rgba(255,255,255,.7),
-        0 0 40px rgba(188,147,255,.5);
-}
-
-.intro-text{
-
-    margin-top:15px;
-
-    line-height:1.7;
-}
-
-.section{
-    margin-top:45px;
-}
-
-.section h3{
-
     margin-bottom:15px;
 
-    color:#d7c0ff;
+    font-size:2.5rem;
+
+    color:#ffffff;
+
 }
 
-.section h3::after{
+section p{
 
-    content:"";
+    text-align:center;
 
-    display:block;
+    font-size:1.4rem;
 
-    width:120px;
-    height:2px;
+    line-height:1.8;
 
-    margin:15px auto;
-
-    background:
-        linear-gradient(
-            to right,
-            transparent,
-            #e8c979,
-            transparent
-        );
 }
+
+/* COUNTDOWN */
 
 #countdown{
 
@@ -172,94 +202,183 @@ body{
     flex-wrap:wrap;
 }
 
-#countdown div{
+.time-box{
 
-    width:110px;
+    width:100px;
 
-    padding:18px;
+    padding:20px;
+
+    background:rgba(255,255,255,.12);
 
     border-radius:20px;
 
-    background:
-        rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.20);
+
 }
 
-#countdown span{
+.time-box span{
 
     display:block;
 
-    font-size:2.2rem;
+    font-size:2rem;
+
+}
+
+.time-box small{
+
+    font-size:1rem;
+
+}
+
+/* ALERTA DRESS CODE */
+
+.important{
+
+    color:#ffd4d4;
+
     font-weight:bold;
 
-    color:#e8c979;
 }
 
-.gift-box{
+/* ALIAS */
 
-    display:inline-block;
+.alias-card{
 
-    margin-top:10px;
+    margin-top:20px;
 
-    padding:18px 25px;
+    border-radius:20px;
 
-    border-radius:15px;
+    padding:20px;
 
     background:
-        rgba(232,201,121,.10);
+    rgba(141,16,32,.25);
 
     border:
-        1px solid rgba(232,201,121,.35);
+    1px solid rgba(255,255,255,.15);
 
-    color:#f4d989;
-
-    font-weight:600;
 }
 
-.btn{
+/* BOTON */
 
-    display:inline-block;
+.btn-confirm{
 
-    margin-top:18px;
+    display:block;
 
-    padding:14px 26px;
+    width:fit-content;
 
-    border:none;
+    margin:20px auto 0;
 
-    border-radius:50px;
-
-    cursor:pointer;
+    padding:15px 30px;
 
     text-decoration:none;
 
-    color:white;
+    color:black;
+
+    border-radius:30px;
+
+    font-weight:bold;
 
     background:
-        linear-gradient(
-            45deg,
-            #8f6cff,
-            #bb8fff
-        );
+    linear-gradient(
+    135deg,
+    #ffffff,
+    #cfcfcf);
+
 }
 
-.signature{
+/* NIEBLA */
 
-    margin-top:50px;
+.fog{
 
-    font-family:'Great Vibes',cursive;
+    position:fixed;
 
-    font-size:3rem;
+    inset:0;
 
-    color:#d7c0ff;
+    pointer-events:none;
+
+    background:
+    radial-gradient(
+    circle,
+    rgba(255,255,255,.08),
+    transparent 70%);
+
+    animation:fogMove 25s linear infinite;
 }
 
-@media(max-width:768px){
+@keyframes fogMove{
 
-    .invitation-card{
-        padding:35px 20px;
+    from{
+       transform:translateX(-150px);
     }
 
-    .invitation-card h1{
-        font-size:3.6rem;
+    to{
+       transform:translateX(150px);
+    }
+}
+
+/* PARTICULAS */
+
+#particles{
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+}
+
+.particle{
+
+    position:absolute;
+
+    width:4px;
+    height:4px;
+
+    background:white;
+
+    border-radius:50%;
+
+    box-shadow:0 0 10px white;
+
+    animation:float 8s linear infinite;
+}
+
+@keyframes float{
+
+    from{
+
+        transform:
+        translateY(100vh);
+
+        opacity:0;
+    }
+
+    30%{
+
+        opacity:1;
+    }
+
+    to{
+
+        transform:
+        translateY(-100px);
+
+        opacity:0;
+    }
+}
+
+@media(min-width:768px){
+
+    .cover{
+
+        background:
+        linear-gradient(
+        rgba(0,0,0,.45),
+        rgba(0,0,0,.55)),
+        url("portada-desktop.jpg");
+
+        background-size:cover;
+        background-position:center;
     }
 
 }
