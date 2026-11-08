@@ -1,13 +1,13 @@
 const openBtn = document.getElementById("openBtn");
 const intro = document.getElementById("intro");
 const content = document.getElementById("content");
-const player = document.getElementById("music");
+const music = document.getElementById("music");
 
 openBtn.addEventListener("click", () => {
 
-    document.body.classList.add("open");
+    document.body.classList.add("abrir");
 
-    player.play();
+    music.play();
 
     setTimeout(() => {
 
@@ -16,17 +16,17 @@ openBtn.addEventListener("click", () => {
 
         window.scrollTo(0,0);
 
-    }, 2200);
+    },2500);
 
 });
 
-const eventDate = new Date(
-"March 20, 2027 22:00:00"
-).getTime();
+const eventDate =
+new Date("March 20, 2027 22:00:00").getTime();
 
 function updateCountdown(){
 
     const now = new Date().getTime();
+
     const distance = eventDate - now;
 
     const days =
@@ -44,12 +44,13 @@ function updateCountdown(){
 
     const seconds =
     Math.floor((distance %
-    (1000*60))/1000);
+    (1000*60))
+    /1000);
 
-    document.getElementById("days").innerHTML = days;
-    document.getElementById("hours").innerHTML = hours;
-    document.getElementById("minutes").innerHTML = minutes;
-    document.getElementById("seconds").innerHTML = seconds;
+    document.getElementById("days").innerText = days;
+    document.getElementById("hours").innerText = hours;
+    document.getElementById("minutes").innerText = minutes;
+    document.getElementById("seconds").innerText = seconds;
 }
 
 updateCountdown();
