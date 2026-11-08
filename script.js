@@ -88,7 +88,7 @@ setInterval(updateCountdown, 1000);
 const particlesContainer =
 document.getElementById("particles");
 
-for (let i = 0; i < 180; i++) {
+for (let i = 0; i < 25; i++) {
 
     const particle =
     document.createElement("div");
