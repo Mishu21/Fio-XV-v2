@@ -1,20 +1,37 @@
-const boton = document.getElementById("openInvitation");
+/* ========================= */
+/* APERTURA DE INVITACION */
+/* ========================= */
+
+const cover = document.getElementById("cover");
 const contenido = document.getElementById("invitationContent");
 
-boton.addEventListener("click", () => {
+cover.addEventListener("click", () => {
 
-    contenido.style.display = "block";
+    cover.style.transition = "opacity 1.2s ease";
+    cover.style.opacity = "0";
 
-    contenido.scrollIntoView({
-        behavior: "smooth"
-    });
+    setTimeout(() => {
+
+        cover.style.display = "none";
+
+        contenido.style.display = "block";
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }, 1200);
 
 });
 
+/* ========================= */
 /* CUENTA REGRESIVA */
+/* ========================= */
 
-const targetDate =
-new Date("March 27, 2027 21:00:00").getTime();
+const targetDate = new Date(
+    "March 27, 2027 21:00:00"
+).getTime();
 
 function updateCountdown() {
 
@@ -22,27 +39,32 @@ function updateCountdown() {
 
     const distance = targetDate - now;
 
+    if (distance <= 0) {
+
+        document.getElementById("days").textContent = "0";
+        document.getElementById("hours").textContent = "0";
+        document.getElementById("minutes").textContent = "0";
+        document.getElementById("seconds").textContent = "0";
+
+        return;
+    }
+
     const days = Math.floor(
         distance / (1000 * 60 * 60 * 24)
     );
 
     const hours = Math.floor(
-        (distance %
-            (1000 * 60 * 60 * 24))
-        /
-        (1000 * 60 * 60)
+        (distance % (1000 * 60 * 60 * 24))
+        / (1000 * 60 * 60)
     );
 
     const minutes = Math.floor(
-        (distance %
-            (1000 * 60 * 60))
-        /
-        (1000 * 60)
+        (distance % (1000 * 60 * 60))
+        / (1000 * 60)
     );
 
     const seconds = Math.floor(
-        (distance %
-        (1000 * 60))
+        (distance % (1000 * 60))
         / 1000
     );
 
@@ -52,31 +74,31 @@ function updateCountdown() {
     document.getElementById("seconds").textContent = seconds;
 }
 
+updateCountdown();
 setInterval(updateCountdown, 1000);
 
-updateCountdown();
-
+/* ========================= */
 /* PARTICULAS MAGICAS */
+/* ========================= */
 
 const particles =
 document.getElementById("particles");
 
-for(let i = 0; i < 60; i++){
+for (let i = 0; i < 60; i++) {
 
-    const p =
+    const particle =
     document.createElement("div");
 
-    p.classList.add("particle");
+    particle.classList.add("particle");
 
-    p.style.left =
+    particle.style.left =
     Math.random() * 100 + "%";
 
-    p.style.animationDuration =
-    (4 + Math.random() * 8) + "s";
+    particle.style.top =
+    Math.random() * 100 + "%";
 
-    p.style.animationDelay =
-    Math.random() * 5 + "s";
+    particle.style.animationDuration =
+    (5 + Math.random() * 8) + "s";
 
-    particles.appendChild(p);
-
-}
+    particle.style.animationDelay =
+   
