@@ -4,37 +4,30 @@
     box-sizing:border-box;
 }
 
-:root{
-
-    --silver:#dadada;
-    --red:#9a1025;
-    --dark:#05080d;
-    --card:rgba(255,255,255,.08);
-
-}
-
 html{
     scroll-behavior:smooth;
 }
 
 body{
 
-    background:
-    radial-gradient(circle at top,#131a25,#05080d);
+    font-family:'Cormorant Garamond', serif;
 
     color:white;
 
-    font-family:'Cormorant Garamond', serif;
-
-    font-style:italic;
-
     overflow-x:hidden;
+
+    background:
+    radial-gradient(
+        circle at top,
+        #162433,
+        #05080d 70%
+    );
 
 }
 
-/* ====================== */
+/* ========================= */
 /* PORTADA */
-/* ====================== */
+/* ========================= */
 
 .cover{
 
@@ -45,22 +38,22 @@ body{
     width:100%;
     height:100vh;
 
-    z-index:9999;
-
     cursor:pointer;
+
+    z-index:9999;
 
     background:
     linear-gradient(
-        rgba(0,0,0,.08),
-        rgba(0,0,0,.20)
+        rgba(0,0,0,.15),
+        rgba(0,0,0,.25)
     ),
     url("portada-mobile.jpg");
 
     background-size:cover;
-
     background-position:center;
 
-    animation:zoomBackground 25s ease-in-out infinite alternate;
+    animation:
+    zoomBackground 30s ease-in-out infinite alternate;
 
 }
 
@@ -76,72 +69,163 @@ body{
 
 }
 
-/* ====================== */
-/* CONTENIDO */
-/* ====================== */
+/* ========================= */
+/* CONTENEDOR PRINCIPAL */
+/* ========================= */
 
 main{
 
     display:none;
 
-    max-width:1000px;
+}
 
-    margin:auto;
+/* ========================= */
+/* ESCENAS */
+/* ========================= */
+
+.scene{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    position:relative;
 
     padding:60px 20px;
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
+
+    overflow:hidden;
+
+}
+
+.scene::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,.45),
+        rgba(0,0,0,.60)
+    );
+
+}
+
+/* ========================= */
+/* FONDOS */
+/* ========================= */
+
+.scene-1{
+
+    background-image:url("separator-roses.jpg");
+
+}
+
+.scene-2{
+
+    background-image:url("separator-butterflies.jpg");
+
+}
+
+.scene-3{
+
+    background-image:url("separator-castle.jpg");
+
+}
+
+.scene-4{
+
+    background-image:url("separator-butterflies.jpg");
+
+}
+
+.scene-5{
+
+    background-image:url("separator-roses.jpg");
+
+}
+
+/* ========================= */
+/* CONTENIDO */
+/* ========================= */
+
+.content-box{
 
     position:relative;
 
     z-index:10;
 
-}
+    width:min(850px, 92%);
 
-section{
-
-    padding:35px;
-
-    margin-bottom:35px;
+    padding:40px;
 
     border-radius:30px;
 
     background:
-    rgba(255,255,255,.06);
+    rgba(0,0,0,.22);
 
-    border:1px solid
-    rgba(255,255,255,.12);
+    backdrop-filter:
+    blur(12px);
 
-    backdrop-filter:blur(12px);
-
-    box-shadow:
-    0 0 30px rgba(255,255,255,.05);
+    border:
+    1px solid rgba(255,255,255,.10);
 
 }
+
+/* ========================= */
+/* TITULOS */
+/* ========================= */
 
 h2{
 
-    text-align:center;
+    font-family:
+    'Great Vibes',
+    cursive;
 
-    font-size:3rem;
+    font-size:4.5rem;
 
-    margin-bottom:20px;
+    margin-bottom:25px;
 
     color:white;
 
+    text-shadow:
+        0 0 15px rgba(255,255,255,.7);
+
 }
 
-section p{
+h3{
 
-    text-align:center;
+    font-size:2rem;
+
+    margin-bottom:10px;
+
+}
+
+p{
+
+    font-size:1.6rem;
 
     line-height:1.8;
 
-    font-size:1.4rem;
-
 }
 
-/* ====================== */
+/* ========================= */
 /* COUNTDOWN */
-/* ====================== */
+/* ========================= */
 
 #countdown{
 
@@ -149,25 +233,17 @@ section p{
 
     justify-content:center;
 
-    gap:15px;
-
     flex-wrap:wrap;
+
+    gap:25px;
+
+    margin-top:35px;
 
 }
 
 .time-box{
 
-    width:120px;
-
-    padding:20px;
-
-    border-radius:20px;
-
-    background:
-    rgba(255,255,255,.10);
-
-    border:
-    1px solid rgba(255,255,255,.15);
+    min-width:130px;
 
 }
 
@@ -175,13 +251,15 @@ section p{
 
     display:block;
 
-    text-align:center;
+    font-size:4.5rem;
 
-    font-size:2.4rem;
-
-    font-weight:bold;
+    font-weight:700;
 
     color:white;
+
+    text-shadow:
+        0 0 20px white,
+        0 0 40px rgba(255,255,255,.5);
 
 }
 
@@ -189,67 +267,35 @@ section p{
 
     display:block;
 
-    text-align:center;
+    margin-top:10px;
 
-    margin-top:5px;
+    text-transform:uppercase;
 
-}
+    letter-spacing:3px;
 
-/* ====================== */
-/* DRESS CODE */
-/* ====================== */
-
-.important{
-
-    margin-top:15px;
-
-    color:#ffd8d8;
-
-    font-weight:bold;
+    font-size:1rem;
 
 }
 
-/* ====================== */
-/* REGALO */
-/* ====================== */
-
-.alias-card{
-
-    margin-top:25px;
-
-    padding:25px;
-
-    border-radius:20px;
-
-    background:
-    rgba(154,16,37,.20);
-
-    border:
-    1px solid rgba(255,255,255,.12);
-
-}
-
-/* ====================== */
+/* ========================= */
 /* BOTONES */
-/* ====================== */
+/* ========================= */
 
-.btn-confirm,
-.btn-location,
-.copy-btn{
+.btn{
 
     display:inline-block;
 
-    margin-top:20px;
+    margin-top:25px;
 
-    padding:15px 30px;
+    padding:18px 40px;
 
     border:none;
 
-    border-radius:30px;
-
-    text-decoration:none;
+    border-radius:50px;
 
     cursor:pointer;
+
+    text-decoration:none;
 
     font-size:1.1rem;
 
@@ -258,45 +304,89 @@ section p{
     background:
     linear-gradient(
         135deg,
-        #9a1025,
-        #d6d6d6
+        #8f1024,
+        #d7d7d7
     );
 
-    transition:.3s;
+    transition:.35s;
 
 }
 
-.btn-confirm:hover,
-.btn-location:hover,
-.copy-btn:hover{
+.btn:hover{
 
-    transform:scale(1.05);
+    transform:
+    translateY(-4px);
 
     box-shadow:
-    0 0 20px rgba(255,255,255,.3);
+    0 0 20px rgba(255,255,255,.35);
 
 }
 
-/* ====================== */
-/* UBICACION */
-/* ====================== */
+.btn-rsvp{
 
-.location-container{
+    font-size:1.3rem;
 
-    text-align:center;
+    padding:22px 55px;
 
 }
 
-.btn-location{
+/* ========================= */
+/* DRESS CODE */
+/* ========================= */
 
-    margin-left:auto;
-    margin-right:auto;
+.important{
+
+    margin-top:20px;
+
+    color:#ffd2d2;
+
+    font-weight:600;
 
 }
 
-/* ====================== */
+/* ========================= */
+/* REGALO */
+/* ========================= */
+
+.alias-card{
+
+    margin-top:35px;
+
+    padding:30px;
+
+    border-radius:25px;
+
+    background:
+    rgba(255,255,255,.08);
+
+    border:
+    1px solid rgba(255,255,255,.15);
+
+}
+
+#aliasText{
+
+    font-size:2rem;
+
+    margin:15px 0;
+
+    font-weight:bold;
+
+}
+
+/* ========================= */
+/* CONFIRMACION */
+/* ========================= */
+
+.final-box h2{
+
+    font-size:5rem;
+
+}
+
+/* ========================= */
 /* HUMO */
-/* ====================== */
+/* ========================= */
 
 .fog{
 
@@ -311,42 +401,39 @@ section p{
     background:
 
     radial-gradient(
-    circle at 20% 50%,
-    rgba(255,255,255,.08),
-    transparent 35%
+        circle at 20% 40%,
+        rgba(255,255,255,.10),
+        transparent 40%
     ),
 
     radial-gradient(
-    circle at 80% 40%,
-    rgba(255,255,255,.07),
-    transparent 40%
+        circle at 80% 60%,
+        rgba(255,255,255,.08),
+        transparent 40%
     );
 
-    animation:fogMove 20s linear infinite;
+    filter:blur(60px);
+
+    animation:
+    fogMove 20s ease-in-out infinite alternate;
 
 }
 
 @keyframes fogMove{
 
     from{
-
-        transform:
-        translateX(-80px);
-
+        transform:translateX(-80px);
     }
 
     to{
-
-        transform:
-        translateX(80px);
-
+        transform:translateX(80px);
     }
 
 }
 
-/* ====================== */
+/* ========================= */
 /* PARTICULAS MAGICAS */
-/* ====================== */
+/* ========================= */
 
 #particles{
 
@@ -364,9 +451,8 @@ section p{
 
     position:absolute;
 
-    width:6px;
-
-    height:6px;
+    width:8px;
+    height:8px;
 
     border-radius:50%;
 
@@ -374,10 +460,11 @@ section p{
 
     box-shadow:
         0 0 10px white,
-        0 0 20px white,
-        0 0 30px white;
+        0 0 25px white,
+        0 0 40px white;
 
-    animation:float 12s linear infinite;
+    animation:
+    float 12s linear infinite;
 
 }
 
@@ -411,48 +498,87 @@ section p{
 
 }
 
-/* ====================== */
-/* SCROLLBAR */
-/* ====================== */
+/* ========================= */
+/* ANIMACION SCROLL */
+/* ========================= */
 
-::-webkit-scrollbar{
+.fade-section{
 
-    width:10px;
+    opacity:0;
 
-}
+    transform:
+    translateY(80px);
 
-::-webkit-scrollbar-thumb{
-
-    background:#851123;
-
-    border-radius:20px;
+    transition:
+    1.2s ease;
 
 }
 
-/* ====================== */
+.fade-section.visible{
+
+    opacity:1;
+
+    transform:
+    translateY(0);
+
+}
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+
+@media(max-width:768px){
+
+    h2{
+
+        font-size:3rem;
+
+    }
+
+    .final-box h2{
+
+        font-size:3.5rem;
+
+    }
+
+    p{
+
+        font-size:1.25rem;
+
+    }
+
+    .time-box span{
+
+        font-size:3rem;
+
+    }
+
+    .content-box{
+
+        padding:25px;
+
+    }
+
+}
+
+/* ========================= */
 /* DESKTOP */
-/* ====================== */
+/* ========================= */
 
-@media(min-width:768px){
+@media(min-width:769px){
 
     .cover{
 
         background:
         linear-gradient(
-            rgba(0,0,0,.08),
-            rgba(0,0,0,.20)
+            rgba(0,0,0,.15),
+            rgba(0,0,0,.25)
         ),
         url("portada-desktop.jpg");
 
         background-size:cover;
 
         background-position:center;
-
-    }
-
-    section{
-
-        padding:45px;
 
     }
 
