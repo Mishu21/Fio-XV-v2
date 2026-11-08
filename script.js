@@ -1,9 +1,8 @@
-const openBtn = document.getElementById("openBtn");
 const intro = document.getElementById("intro");
 const content = document.getElementById("content");
 const music = document.getElementById("music");
 
-openBtn.addEventListener("click", () => {
+intro.addEventListener("click", () => {
 
     document.body.classList.add("abrir");
 
