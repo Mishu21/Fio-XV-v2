@@ -101,4 +101,8 @@ for (let i = 0; i < 60; i++) {
     (5 + Math.random() * 8) + "s";
 
     particle.style.animationDelay =
-   
+    (Math.random() * 5) + "s";
+
+    particles.appendChild(particle);
+
+}
