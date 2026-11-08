@@ -1,140 +1,82 @@
-const intro = document.getElementById("intro");
-const content = document.getElementById("content");
-const music = document.getElementById("music");
+const boton = document.getElementById("openInvitation");
+const contenido = document.getElementById("invitationContent");
 
-intro.addEventListener("click", () => {
+boton.addEventListener("click", () => {
 
-    document.body.classList.add("abrir");
+    contenido.style.display = "block";
 
-    music.play().catch(() => {});
-
-    setTimeout(() => {
-
-        intro.style.display = "none";
-        content.style.display = "block";
-
-        startParticles();
-
-    }, 1800);
+    contenido.scrollIntoView({
+        behavior: "smooth"
+    });
 
 });
 
-/* ALIAS */
-
-function copyAlias(){
-
-    navigator.clipboard.writeText(
-        "frio.xv.ejemplo"
-    );
-
-    alert("Alias copiado ✅");
-}
-
 /* CUENTA REGRESIVA */
 
-const eventDate =
-new Date("2027-03-20T22:00:00").getTime();
+const targetDate =
+new Date("March 27, 2027 21:00:00").getTime();
 
-function updateCountdown(){
+function updateCountdown() {
 
     const now = new Date().getTime();
-    const distance = eventDate - now;
 
-    if(distance < 0){
-        return;
-    }
+    const distance = targetDate - now;
 
-    document.getElementById("days").innerText =
-        Math.floor(distance / (1000*60*60*24));
+    const days = Math.floor(
+        distance / (1000 * 60 * 60 * 24)
+    );
 
-    document.getElementById("hours").innerText =
-        Math.floor((distance %
-        (1000*60*60*24)) /
-        (1000*60*60));
+    const hours = Math.floor(
+        (distance %
+            (1000 * 60 * 60 * 24))
+        /
+        (1000 * 60 * 60)
+    );
 
-    document.getElementById("minutes").innerText =
-        Math.floor((distance %
-        (1000*60*60)) /
-        (1000*60));
+    const minutes = Math.floor(
+        (distance %
+            (1000 * 60 * 60))
+        /
+        (1000 * 60)
+    );
 
-    document.getElementById("seconds").innerText =
-        Math.floor((distance %
-        (1000*60)) /
-        1000);
+    const seconds = Math.floor(
+        (distance %
+        (1000 * 60))
+        / 1000
+    );
+
+    document.getElementById("days").textContent = days;
+    document.getElementById("hours").textContent = hours;
+    document.getElementById("minutes").textContent = minutes;
+    document.getElementById("seconds").textContent = seconds;
 }
+
+setInterval(updateCountdown, 1000);
 
 updateCountdown();
 
-setInterval(updateCountdown,1000);
+/* PARTICULAS MAGICAS */
 
-/* PARTICULAS */
+const particles =
+document.getElementById("particles");
 
-function startParticles(){
+for(let i = 0; i < 60; i++){
 
-    const canvas =
-    document.getElementById("particles");
+    const p =
+    document.createElement("div");
 
-    const ctx =
-    canvas.getContext("2d");
+    p.classList.add("particle");
 
-    canvas.width =
-    window.innerWidth;
+    p.style.left =
+    Math.random() * 100 + "%";
 
-    canvas.height =
-    window.innerHeight;
+    p.style.animationDuration =
+    (4 + Math.random() * 8) + "s";
 
-    const particles = [];
+    p.style.animationDelay =
+    Math.random() * 5 + "s";
 
-    for(let i=0;i<80;i++){
+    particles.appendChild(p);
 
-        particles.push({
-
-            x:Math.random()*canvas.width,
-            y:Math.random()*canvas.height,
-
-            size:Math.random()*3+1,
-
-            speed:Math.random()*0.6+0.2
-        });
-    }
-
-    function animate(){
-
-        ctx.clearRect(
-            0,0,
-            canvas.width,
-            canvas.height
-        );
-
-        ctx.fillStyle =
-        "rgba(255,255,255,.6)";
-
-        particles.forEach(p=>{
-
-            ctx.beginPath();
-
-            ctx.arc(
-                p.x,
-                p.y,
-                p.size,
-                0,
-                Math.PI*2
-            );
-
-            ctx.fill();
-
-            p.y -= p.speed;
-
-            if(p.y < 0){
-                p.y = canvas.height;
-            }
-
-        });
-
-        requestAnimationFrame(
-            animate
-        );
-    }
-
-    animate();
 }
