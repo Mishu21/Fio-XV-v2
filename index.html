@@ -8,7 +8,7 @@
 
     <title>Mis 15 Años - Fiorella</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@300;400;500;600&display=swap"
         rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
@@ -19,36 +19,42 @@
 
     <div class="fog"></div>
 
+    <div id="particles"></div>
+
     <div class="cover" id="cover"></div>
 
     <main id="invitationContent">
 
         <!-- CUENTA REGRESIVA -->
 
-        <section>
+        <section class="scene scene-1 fade-section">
 
-            <h2>La Cuenta Regresiva Comenzó</h2>
+            <div class="content-box">
 
-            <div id="countdown">
+                <h2>La Cuenta Regresiva Comenzó</h2>
 
-                <div class="time-box">
-                    <span id="days">0</span>
-                    <small>Días</small>
-                </div>
+                <div id="countdown">
 
-                <div class="time-box">
-                    <span id="hours">0</span>
-                    <small>Horas</small>
-                </div>
+                    <div class="time-box">
+                        <span id="days">0</span>
+                        <small>Días</small>
+                    </div>
 
-                <div class="time-box">
-                    <span id="minutes">0</span>
-                    <small>Minutos</small>
-                </div>
+                    <div class="time-box">
+                        <span id="hours">0</span>
+                        <small>Horas</small>
+                    </div>
 
-                <div class="time-box">
-                    <span id="seconds">0</span>
-                    <small>Segundos</small>
+                    <div class="time-box">
+                        <span id="minutes">0</span>
+                        <small>Minutos</small>
+                    </div>
+
+                    <div class="time-box">
+                        <span id="seconds">0</span>
+                        <small>Segundos</small>
+                    </div>
+
                 </div>
 
             </div>
@@ -57,8 +63,152 @@
 
         <!-- FECHA -->
 
-        <section>
+        <section class="scene scene-2 fade-section">
 
-            <h2>Fecha</h2>
+            <div class="content-box">
+
+                <h2>La Gran Noche</h2>
+
+                <p>27 de Marzo de 2027</p>
+
+                <p>Desde las 09:00 PM hasta las 05:00 AM</p>
+
+            </div>
+
+        </section>
+
+        <!-- UBICACION -->
+
+        <section class="scene scene-3 fade-section">
+
+            <div class="content-box">
+
+                <h2>¿Dónde se festeja?</h2>
+
+                <p>
+                    Quinta Oasis<br>
+                    Los Olmos 3581<br>
+                    La Reja Grande
+                </p>
+
+                <a
+                    class="btn"
+                    href="https://maps.google.com/?q=Quinta+Oasis+Los+Olmos+3581+La+Reja+Grande"
+                    target="_blank">
+
+                    📍 Ver ubicación
+
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- DRESS CODE -->
+
+        <section class="scene scene-4 fade-section">
+
+            <div class="content-box">
+
+                <h2>Dress Code</h2>
+
+                <p>Elegante Sport</p>
+
+                <p class="important">
+                    Se solicita evitar los tonos rojo,
+                    bordó, vino, granate,
+                    cereza y plateado.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- REGALO -->
+
+        <section class="scene scene-5 fade-section">
+
+            <div class="content-box">
+
+                <h2>Regalo</h2>
+
+                <p>
+                    Lo más importante es tu presencia.
+                </p>
+
+                <p>
+                    Si deseás hacerme un regalo,
+                    te dejo mis datos bancarios.
+                </p>
+
+                <div class="alias-card">
+
+                    <h3>Alias</h3>
+
+                    <p id="aliasText">
+
+                        fydiaz.27.mp
+
+                    </p>
+
+                    <button
+                        class="btn"
+                        onclick="copyAlias()">
+
+                        📋 Copiar Alias
+
+                    </button>
+
+                    <p>
+
+                        Yanina Fiorella Díaz Franco
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- RSVP -->
+
+        <section class="scene scene-3 fade-section">
+
+            <div class="content-box final-box">
+
+                <h2>
+
+                    ¿Me acompañás en esta noche mágica?
+
+                </h2>
+
+                <p>
+
+                    Confirmá tu asistencia
+                    antes del 19 de Marzo
+
+                </p>
+
+                <a
+                    class="btn btn-rsvp"
+                    href="https://wa.me/54911XXXXXXXXXX"
+                    target="_blank">
+
+                    💌 Confirmar Asistencia
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
 
         
