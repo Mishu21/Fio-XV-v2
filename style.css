@@ -7,109 +7,79 @@
 body{
     font-family:'Montserrat',sans-serif;
     color:white;
+    overflow-x:hidden;
 }
 
-/* ---------------- */
 /* PORTADA */
-/* ---------------- */
 
 #intro{
     position:fixed;
     inset:0;
     z-index:9999;
-    overflow:hidden;
+    cursor:pointer;
 }
 
 .portada{
     width:100%;
-    height:100%;
+    height:100vh;
     object-fit:cover;
+    display:block;
 
     transition:
         transform 2s ease,
         opacity 2s ease;
 }
 
-.fog{
-
+.intro-overlay{
     position:absolute;
-    left:0;
-    bottom:0;
-
-    width:100%;
-    height:200px;
+    inset:0;
 
     background:
-        linear-gradient(
-            to top,
-            rgba(255,255,255,.35),
+        radial-gradient(
+            rgba(255,255,255,.05),
             transparent
         );
-
-    filter:blur(35px);
-}
-
-#openBtn{
-
-    position:absolute;
-
-    left:50%;
-    bottom:80px;
-
-    transform:
-        translateX(-50%);
-
-    padding:18px 40px;
-
-    border:none;
-
-    border-radius:50px;
-
-    background:
-        rgba(255,255,255,.18);
-
-    backdrop-filter:blur(15px);
-
-    color:white;
-
-    font-size:18px;
-
-    cursor:pointer;
 }
 
 .abrir .portada{
-
-    transform:
-        scale(1.20);
-
+    transform:scale(1.15);
     opacity:0;
 }
 
-/* ---------------- */
 /* CONTENIDO */
-/* ---------------- */
 
 #content{
 
     display:none;
 
-    padding:80px 20px;
+    position:relative;
 
     min-height:100vh;
 
+    padding:80px 20px;
+
     background:
         linear-gradient(
-            rgba(2,16,36,.90),
-            rgba(2,16,36,.92)
+            rgba(24,8,45,.90),
+            rgba(24,8,45,.95)
         ),
-        url("portada.jpg");
+        url("portada-desktop.jpg");
 
-    background-size:cover;
     background-position:center;
+    background-size:cover;
     background-attachment:fixed;
 }
 
+#particles{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+}
+
 .invitation-card{
+
+    position:relative;
+    z-index:10;
 
     width:90%;
     max-width:900px;
@@ -131,51 +101,47 @@ body{
         1px solid rgba(255,255,255,.15);
 
     box-shadow:
-        0 15px 40px rgba(0,0,0,.35);
+        0 20px 60px rgba(0,0,0,.40);
 }
 
 .invitation-card h2{
 
-    letter-spacing:5px;
-
-    margin-bottom:10px;
+    letter-spacing:6px;
+    margin-bottom:15px;
 }
 
 .invitation-card h1{
 
     font-family:'Great Vibes',cursive;
 
-    font-size:6rem;
+    font-size:5rem;
 
-    color:white;
+    color:#fff;
 
     text-shadow:
-        0 0 15px #fff,
-        0 0 30px #60a5fa;
+        0 0 20px rgba(255,255,255,.7),
+        0 0 40px rgba(188,147,255,.5);
 }
 
 .intro-text{
 
-    margin:30px auto;
+    margin-top:15px;
 
-    max-width:650px;
-
-    line-height:1.8;
+    line-height:1.7;
 }
 
-.info-block{
-
-    margin-top:40px;
+.section{
+    margin-top:45px;
 }
 
-.info-block h3{
-
-    color:#9fd3ff;
+.section h3{
 
     margin-bottom:15px;
+
+    color:#d7c0ff;
 }
 
-.info-block h3::after{
+.section h3::after{
 
     content:"";
 
@@ -190,49 +156,8 @@ body{
         linear-gradient(
             to right,
             transparent,
-            gold,
+            #e8c979,
             transparent
-        );
-}
-
-.alias{
-
-    display:inline-block;
-
-    margin-top:15px;
-
-    padding:15px 25px;
-
-    border-radius:15px;
-
-    color:gold;
-
-    border:
-        1px solid rgba(255,215,0,.4);
-
-    background:
-        rgba(255,215,0,.08);
-}
-
-.btn{
-
-    display:inline-block;
-
-    margin-top:15px;
-
-    padding:15px 30px;
-
-    text-decoration:none;
-
-    color:white;
-
-    border-radius:50px;
-
-    background:
-        linear-gradient(
-            45deg,
-            #cfa500,
-            #ffd700
         );
 }
 
@@ -242,16 +167,16 @@ body{
 
     justify-content:center;
 
-    gap:20px;
+    gap:15px;
 
     flex-wrap:wrap;
 }
 
 #countdown div{
 
-    padding:15px;
+    width:110px;
 
-    min-width:100px;
+    padding:18px;
 
     border-radius:20px;
 
@@ -263,22 +188,68 @@ body{
 
     display:block;
 
-    font-size:2.5rem;
-
+    font-size:2.2rem;
     font-weight:bold;
 
-    color:#9fd3ff;
+    color:#e8c979;
+}
+
+.gift-box{
+
+    display:inline-block;
+
+    margin-top:10px;
+
+    padding:18px 25px;
+
+    border-radius:15px;
+
+    background:
+        rgba(232,201,121,.10);
+
+    border:
+        1px solid rgba(232,201,121,.35);
+
+    color:#f4d989;
+
+    font-weight:600;
+}
+
+.btn{
+
+    display:inline-block;
+
+    margin-top:18px;
+
+    padding:14px 26px;
+
+    border:none;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+    text-decoration:none;
+
+    color:white;
+
+    background:
+        linear-gradient(
+            45deg,
+            #8f6cff,
+            #bb8fff
+        );
 }
 
 .signature{
 
-    margin-top:60px;
+    margin-top:50px;
 
     font-family:'Great Vibes',cursive;
 
     font-size:3rem;
 
-    color:#9fd3ff;
+    color:#d7c0ff;
 }
 
 @media(max-width:768px){
@@ -288,7 +259,7 @@ body{
     }
 
     .invitation-card h1{
-        font-size:4rem;
+        font-size:3.6rem;
     }
 
 }
