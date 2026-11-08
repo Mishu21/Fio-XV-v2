@@ -1,337 +1,87 @@
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 body{
-background:#021024;
-font-family:Montserrat,sans-serif;
-overflow-x:hidden;
-color:white;
+    background:#021024;
+    font-family:'Montserrat',sans-serif;
+    overflow-x:hidden;
+    color:white;
 }
 
+/* -------------------------
+   PANTALLA INICIAL
+--------------------------*/
+
 #intro{
-position:fixed;
-inset:0;
-display:flex;
-justify-content:center;
-align-items:center;
-overflow:hidden;
-z-index:9999;
+    position:fixed;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    z-index:9999;
 }
 
 .portada{
+    position:absolute;
+    inset:0;
 
-position:absolute;
-inset:0;
+    width:100%;
+    height:100%;
 
-width:100%;
-height:100%;
+    object-fit:cover;
 
-object-fit:cover;
-
-transition:
-transform 2.5s ease,
-opacity 2.5s ease;
+    transition:
+        transform 2.8s ease,
+        opacity 2.8s ease,
+        filter 2.8s ease;
 }
+
+/* -------------------------
+   ESTRELLAS
+--------------------------*/
 
 .stars{
 
-position:absolute;
-inset:0;
+    position:absolute;
+    inset:0;
 
-background-image:
-radial-gradient(white 1px, transparent 1px);
+    background-image:
+        radial-gradient(
+            rgba(255,255,255,.9) 1px,
+            transparent 1px
+        );
 
-background-size:50px 50px;
+    background-size:60px 60px;
 
-opacity:.35;
+    opacity:.35;
 
-animation:
-twinkle 5s infinite alternate;
+    animation:
+        twinkle 5s infinite alternate;
+
+    pointer-events:none;
 }
 
 @keyframes twinkle{
 
-0%{opacity:.2;}
-100%{opacity:.6;}
+    0%{
+        opacity:.15;
+    }
 
+    100%{
+        opacity:.5;
+    }
 }
+
+/* -------------------------
+   LUZ MAGICA DE LA PUERTA
+--------------------------*/
 
 .magic-light{
 
-position:absolute;
-
-left:50%;
-top:50%;
-
-width:8px;
-height:0;
-
-transform:translate(-50%,-50%);
-
-background:white;
-
-opacity:0;
-
-box-shadow:
-0 0 40px #fff,
-0 0 80px #93c5fd,
-0 0 150px #60a5fa;
-}
-
-.butterfly{
-
-position:absolute;
-
-font-size:40px;
-
-filter:
-drop-shadow(0 0 10px #60a5fa);
-
-animation:
-float 8s infinite ease-in-out;
-}
-
-.b1{
-top:20%;
-left:15%;
-}
-
-.b2{
-top:35%;
-right:15%;
-animation-delay:2s;
-}
-
-.b3{
-top:70%;
-left:25%;
-animation-delay:4s;
-}
-
-@keyframes float{
-
-0%{
-transform:translateY(0);
-}
-
-50%{
-transform:translateY(-30px);
-}
-
-100%{
-transform:translateY(0);
-}
-
-}
-
-#openBtn{
-
-position:relative;
-
-z-index:20;
-
-padding:18px 40px;
-
-border:none;
-
-border-radius:50px;
-
-background:
-rgba(255,255,255,.15);
-
-backdrop-filter:blur(15px);
-
-color:white;
-
-font-size:18px;
-
-cursor:pointer;
-
-border:1px solid rgba(255,255,255,.4);
-}
-
-.abrir .portada{
-
-transform:scale(1.25);
-
-opacity:0;
-}
-
-.abrir .magic-light{
-
-height:120vh;
-
-opacity:1;
-
-transition:2s ease;
-}
-
-#content{
-
-display:none;
-
-background:
-linear-gradient(
-180deg,
-#021024,
-#052659,
-#021024
-);
-
-min-height:100vh;
-}
-
-.hero{
-
-min-height:100vh;
-
-display:flex;
-
-flex-direction:column;
-
-justify-content:center;
-
-align-items:center;
-
-text-align:center;
-
-padding:30px;
-}
-
-.hero h2{
-letter-spacing:5px;
-}
-
-.hero h1{
-
-font-size:6rem;
-
-font-family:'Great Vibes',cursive;
-
-color:#9fd3ff;
-}
-
-.hero p{
-
-max-width:700px;
-
-margin-top:30px;
-
-font-size:1.1rem;
-}
-
-.card{
-
-width:90%;
-
-max-width:800px;
-
-margin:30px auto;
-
-padding:40px;
-
-border-radius:30px;
-
-background:rgba(255,255,255,.08);
-
-backdrop-filter:blur(25px);
-
-text-align:center;
-}
-
-.card h3{
-
-margin-bottom:15px;
-
-color:#9fd3ff;
-}
-
-#countdown{
-
-display:flex;
-
-justify-content:center;
-
-gap:25px;
-
-flex-wrap:wrap;
-}
-
-#countdown span{
-
-display:block;
-
-font-size:3rem;
-
-font-weight:bold;
-
-color:#60a5fa;
-}
-
-.alias{
-
-margin-top:20px;
-
-padding:15px;
-
-border-radius:15px;
-
-background:rgba(255,255,255,.10);
-
-font-weight:bold;
-}
-
-.btn{
-
-display:inline-block;
-
-margin-top:15px;
-
-padding:15px 25px;
-
-text-decoration:none;
-
-color:white;
-
-border-radius:50px;
-
-background:
-linear-gradient(
-45deg,
-#2563eb,
-#60a5fa
-);
-}
-
-footer{
-
-padding:80px 20px;
-
-text-align:center;
-}
-
-footer h2{
-
-font-family:'Great Vibes';
-font-size:4rem;
-color:#9fd3ff;
-}
-
-@media(max-width:768px){
-
-.hero h1{
-
-font-size:4rem;
-}
-
-.butterfly{
-
-font-size:30px;
-}
-
-}
+    position:
 
 }
