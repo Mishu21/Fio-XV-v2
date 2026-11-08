@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Fiorella Duarte | Mis 15 Años</title>
 
     <link rel="stylesheet" href="style.css">
 
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -19,85 +20,83 @@
 
 <div id="intro">
 
-    <img
-        src="portada.jpg"
-        class="portada"
-        id="openBtn"
-        alt="Portada">
+    <picture>
+        <source
+            media="(min-width: 768px)"
+            srcset="portada-desktop.jpg">
 
-    <div class="fog"></div>
+        <img
+            src="portada-mobile.jpg"
+            class="portada"
+            alt="Portada">
+    </picture>
+
+    <div class="intro-overlay"></div>
 
 </div>
+
 <div id="content">
+
+    <canvas id="particles"></canvas>
 
     <div class="invitation-card">
 
-        <h2>Mis 15 Años</h2>
+        <h2>MIS 15 AÑOS</h2>
 
         <h1>Fiorella Duarte</h1>
 
         <p class="intro-text">
-            Hay noches que se convierten en recuerdos para toda la vida.
-            Quiero compartir una de ellas con vos.
+            Te invito a compartir una noche mágica e inolvidable.
         </p>
 
-        <div class="info-block">
+        <div class="section">
 
             <h3>📅 Fecha</h3>
 
-            <p>Sábado 20 de Marzo</p>
-            <p>22:00 hs</p>
+            <p>Sábado 20 de Marzo de 2027</p>
+            <p>22:00 Hs.</p>
 
         </div>
 
-        <div class="info-block">
+        <div class="section">
 
             <h3>📍 Lugar</h3>
 
             <p>Moreno, Buenos Aires</p>
 
-            <a
-                class="btn"
-                target="_blank"
-                href="https://www.google.com/maps/search/Moreno+Buenos+Aires">
-
-                Cómo Llegar
-
-            </a>
-
         </div>
 
-        <div class="info-block">
+        <div class="section">
 
             <h3>⏳ Cuenta Regresiva</h3>
 
             <div id="countdown">
 
                 <div>
-                    <span id="days"></span>
-                    <small>Días</small>
+                    <span id="days">0</span>
+                    <small>DÍAS</small>
                 </div>
 
                 <div>
-                    <span id="hours"></span>
-                    <small>Horas</small>
+                    <span id="hours">0</span>
+                    <small>HORAS</small>
                 </div>
 
                 <div>
-                    <span id="minutes"></span>
-                    <small>Minutos</small>
+                    <span id="minutes">0</span>
+                    <small>MIN</small>
                 </div>
 
                 <div>
-                    <span id="seconds"></span>
-                    <small>Segundos</small>
+                    <span id="seconds">0</span>
+                    <small>SEG</small>
                 </div>
 
             </div>
 
         </div>
 
-        <div class="info-block">
+        <div class="section">
 
             <h3>👗 Dress Code</h3>
 
@@ -105,23 +104,30 @@
 
         </div>
 
-        <div class="info-block">
+        <div class="section">
 
             <h3>🎁 Mesa de Regalos</h3>
 
-            <div class="alias">
-                fiorella.duarte.xv
+            <p>Si querés hacerme un regalo:</p>
+
+            <div class="gift-box">
+                frio.xv.ejemplo
             </div>
+
+            <button class="btn" onclick="copyAlias()">
+                Copiar Alias
+            </button>
 
         </div>
 
-        <div class="info-block">
+        <div class="section">
 
             <h3>✅ Confirmación</h3>
 
             <a
                 class="btn"
-                href="https://wa.me/5411523199850?text=Hola%20Fiorella,%20confirmo%20mi%20asistencia%20a%20tus%2015%20años%20💙">
+                target="_blank"
+                href="https://wa.me/541123199850?text=Hola%20Fiorella,%20confirmo%20mi%20asistencia%20a%20tus%2015%20años%20💜">
 
                 Confirmar Asistencia
 
@@ -130,9 +136,7 @@
         </div>
 
         <div class="signature">
-
-            💙 Fiorella 💙
-
+            💜 Te espero 💜
         </div>
 
     </div>
@@ -141,7 +145,5 @@
 
 <script src="script.js"></script>
 
-</body>
-</html>
 </body>
 </html>
