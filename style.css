@@ -402,32 +402,22 @@ p{
 
     radial-gradient(
         circle at 20% 40%,
-        rgba(255,255,255,.10),
+        rgba(255,255,255,.08),
         transparent 40%
     ),
 
     radial-gradient(
         circle at 80% 60%,
-        rgba(255,255,255,.08),
+        rgba(255,255,255,.06),
         transparent 40%
     );
 
-    filter:blur(60px);
+    filter:blur(80px);
+
+    opacity:.5;
 
     animation:
-    fogMove 20s ease-in-out infinite alternate;
-
-}
-
-@keyframes fogMove{
-
-    from{
-        transform:translateX(-80px);
-    }
-
-    to{
-        transform:translateX(80px);
-    }
+    fogMove 30s ease-in-out infinite alternate;
 
 }
 
@@ -451,17 +441,16 @@ p{
 
     position:absolute;
 
-    width:8px;
-    height:8px;
+    width:3px;
+    height:3px;
 
     border-radius:50%;
 
     background:white;
 
     box-shadow:
-        0 0 10px white,
-        0 0 25px white,
-        0 0 40px white;
+    0 0 6px white,
+    0 0 12px rgba(255,255,255,.6);
 
     animation:
     float 12s linear infinite;
