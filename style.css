@@ -36,108 +36,53 @@ body{
 
 }
 
+/* ========================= */
 /* PORTADA */
+/* ========================= */
 
 .cover{
 
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
     height:100vh;
+
+    z-index:9999;
+
+    cursor:pointer;
 
     background:
     linear-gradient(
-    rgba(0,0,0,.45),
-    rgba(0,0,0,.55)),
+        rgba(0,0,0,.08),
+        rgba(0,0,0,.15)
+    ),
     url("portada-mobile.jpg");
 
     background-size:cover;
-    background-position:center;
+    background-position:center center;
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    animation:
+    zoomBackground 25s ease-in-out infinite alternate;
 
-    animation:zoomBackground 30s infinite alternate;
 }
 
 @keyframes zoomBackground{
 
     from{
-        background-size:100%;
+        transform:scale(1);
     }
 
     to{
-        background-size:115%;
+        transform:scale(1.08);
     }
 }
 
-.silver-frame{
-
-    border:5px solid var(--silver);
-
-    padding:40px;
-
-    width:90%;
-
-    max-width:650px;
-
-    background:rgba(0,0,0,.25);
-
-    backdrop-filter:blur(2px);
-
-}
-
-.hero-content{
-
-    text-align:center;
-
-}
-
-.subtitle{
-
-    font-size:2rem;
-
-    letter-spacing:2px;
-
-    margin-bottom:20px;
-
-}
-
-h1{
-
-    font-family:'Great Vibes', cursive;
-
-    font-size:6rem;
-
-    color:white;
-
-    text-shadow:
-        0 0 15px white,
-        0 0 30px rgba(255,255,255,.8);
-
-}
-
-#openInvitation{
-
-    margin-top:30px;
-
-    padding:18px 40px;
-
-    border:none;
-
-    border-radius:50px;
-
-    background:
-    linear-gradient(
-    135deg,
-    #ffffff,
-    #d0d0d0);
-
-    font-size:1.1rem;
-
-    cursor:pointer;
-
-}
-
-/* SECCIONES */
+/* ========================= */
+/* CONTENIDO */
+/* ========================= */
 
 main{
 
@@ -189,7 +134,9 @@ section p{
 
 }
 
-/* COUNTDOWN */
+/* ========================= */
+/* CUENTA REGRESIVA */
+/* ========================= */
 
 #countdown{
 
@@ -200,6 +147,7 @@ section p{
     gap:15px;
 
     flex-wrap:wrap;
+
 }
 
 .time-box{
@@ -210,175 +158,3 @@ section p{
 
     background:rgba(255,255,255,.12);
 
-    border-radius:20px;
-
-    border:1px solid rgba(255,255,255,.20);
-
-}
-
-.time-box span{
-
-    display:block;
-
-    font-size:2rem;
-
-}
-
-.time-box small{
-
-    font-size:1rem;
-
-}
-
-/* ALERTA DRESS CODE */
-
-.important{
-
-    color:#ffd4d4;
-
-    font-weight:bold;
-
-}
-
-/* ALIAS */
-
-.alias-card{
-
-    margin-top:20px;
-
-    border-radius:20px;
-
-    padding:20px;
-
-    background:
-    rgba(141,16,32,.25);
-
-    border:
-    1px solid rgba(255,255,255,.15);
-
-}
-
-/* BOTON */
-
-.btn-confirm{
-
-    display:block;
-
-    width:fit-content;
-
-    margin:20px auto 0;
-
-    padding:15px 30px;
-
-    text-decoration:none;
-
-    color:black;
-
-    border-radius:30px;
-
-    font-weight:bold;
-
-    background:
-    linear-gradient(
-    135deg,
-    #ffffff,
-    #cfcfcf);
-
-}
-
-/* NIEBLA */
-
-.fog{
-
-    position:fixed;
-
-    inset:0;
-
-    pointer-events:none;
-
-    background:
-    radial-gradient(
-    circle,
-    rgba(255,255,255,.08),
-    transparent 70%);
-
-    animation:fogMove 25s linear infinite;
-}
-
-@keyframes fogMove{
-
-    from{
-       transform:translateX(-150px);
-    }
-
-    to{
-       transform:translateX(150px);
-    }
-}
-
-/* PARTICULAS */
-
-#particles{
-
-    position:fixed;
-
-    inset:0;
-
-    pointer-events:none;
-}
-
-.particle{
-
-    position:absolute;
-
-    width:4px;
-    height:4px;
-
-    background:white;
-
-    border-radius:50%;
-
-    box-shadow:0 0 10px white;
-
-    animation:float 8s linear infinite;
-}
-
-@keyframes float{
-
-    from{
-
-        transform:
-        translateY(100vh);
-
-        opacity:0;
-    }
-
-    30%{
-
-        opacity:1;
-    }
-
-    to{
-
-        transform:
-        translateY(-100px);
-
-        opacity:0;
-    }
-}
-
-@media(min-width:768px){
-
-    .cover{
-
-        background:
-        linear-gradient(
-        rgba(0,0,0,.45),
-        rgba(0,0,0,.55)),
-        url("portada-desktop.jpg");
-
-        background-size:cover;
-        background-position:center;
-    }
-
-}
