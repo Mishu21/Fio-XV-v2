@@ -11,9 +11,7 @@ html{
 body{
 
     font-family:'Cormorant Garamond', serif;
-
     font-style:italic;
-
     font-weight:400;
 
     color:white;
@@ -28,8 +26,6 @@ body{
     );
 
 }
-
-
 
 /* ========================= */
 /* PORTADA */
@@ -76,7 +72,7 @@ body{
 }
 
 /* ========================= */
-/* CONTENEDOR PRINCIPAL */
+/* CONTENEDOR */
 /* ========================= */
 
 main{
@@ -125,8 +121,8 @@ main{
 
     background:
     linear-gradient(
-        rgba(0,0,0,.45),
-        rgba(0,0,0,.60)
+        rgba(0,0,0,.38),
+        rgba(0,0,0,.58)
     );
 
 }
@@ -136,37 +132,27 @@ main{
 /* ========================= */
 
 .scene-1{
-
     background-image:url("separator-roses.jpg");
-
 }
 
 .scene-2{
-
     background-image:url("separator-butterflies.jpg");
-
 }
 
 .scene-3{
-
     background-image:url("separator-castle.jpg");
-
 }
 
 .scene-4{
-
     background-image:url("separator-butterflies.jpg");
-
 }
 
 .scene-5{
-
     background-image:url("separator-roses.jpg");
-
 }
 
 /* ========================= */
-/* CONTENIDO */
+/* CAJAS */
 /* ========================= */
 
 .content-box{
@@ -175,7 +161,7 @@ main{
 
     z-index:10;
 
-    width:min(650px, 90%);
+    width:min(650px,90%);
 
     padding:40px;
 
@@ -184,8 +170,9 @@ main{
     background:
     rgba(5,8,13,.12);
 
-    backdrop-filter:
-    blur(6px);
+    backdrop-filter:blur(6px);
+
+    -webkit-backdrop-filter:blur(6px);
 
     border:
     1px solid rgba(255,255,255,.10);
@@ -193,11 +180,7 @@ main{
 }
 
 /* ========================= */
-/* TITULOS */
-/* ========================= */
-
-/* ========================= */
-/* TITULOS */
+/* TIPOGRAFIA */
 /* ========================= */
 
 h2{
@@ -208,9 +191,9 @@ h2{
 
     font-weight:400;
 
-    margin-bottom:25px;
-
     color:white;
+
+    margin-bottom:25px;
 
     text-shadow:
         0 0 8px rgba(255,255,255,.35);
@@ -244,6 +227,18 @@ p{
 }
 
 /* ========================= */
+/* INTRO */
+/* ========================= */
+
+.scene-intro p{
+
+    max-width:600px;
+
+    margin:0 auto;
+
+}
+
+/* ========================= */
 /* COUNTDOWN */
 /* ========================= */
 
@@ -257,13 +252,13 @@ p{
 
     gap:25px;
 
-    margin-top:35px;
+    margin-top:30px;
 
 }
 
 .time-box{
 
-    min-width:130px;
+    min-width:110px;
 
 }
 
@@ -308,10 +303,6 @@ p{
 /* BOTONES */
 /* ========================= */
 
-/* ========================= */
-/* BOTONES */
-/* ========================= */
-
 .btn{
 
     display:inline-block;
@@ -325,10 +316,10 @@ p{
     border-radius:999px;
 
     border:
-        1px solid rgba(255,255,255,.16);
+    1px solid rgba(255,255,255,.16);
 
     background:
-        rgba(255,255,255,.08);
+    rgba(255,255,255,.08);
 
     backdrop-filter:blur(10px);
 
@@ -346,8 +337,6 @@ p{
 
     font-weight:500;
 
-    text-align:center;
-
     cursor:pointer;
 
     transition:
@@ -360,13 +349,13 @@ p{
 .btn:hover{
 
     transform:
-        translateY(-3px);
+    translateY(-3px);
 
     background:
-        rgba(255,255,255,.15);
+    rgba(255,255,255,.15);
 
     box-shadow:
-        0 10px 25px rgba(255,255,255,.08);
+    0 10px 25px rgba(255,255,255,.08);
 
 }
 
@@ -386,37 +375,37 @@ p{
 
     color:#ffd2d2;
 
-    font-weight:600;
-
 }
 
 /* ========================= */
 /* REGALO */
 /* ========================= */
 
-.alias-card{
+.gift-label{
 
-    margin-top:35px;
+    margin-top:20px;
 
-    padding:30px;
+    opacity:.8;
 
-    border-radius:25px;
-
-    background:
-    rgba(255,255,255,.08);
-
-    border:
-    1px solid rgba(255,255,255,.15);
+    font-size:1.3rem;
 
 }
 
-#aliasText{
+.gift-value{
 
-    font-size:2rem;
+    font-size:2.2rem;
 
-    margin:15px 0;
+    font-weight:600;
 
-    font-weight:bold;
+    margin:10px 0 20px;
+
+}
+
+.gift-owner{
+
+    margin-top:10px;
+
+    margin-bottom:25px;
 
 }
 
@@ -426,7 +415,7 @@ p{
 
 .final-box h2{
 
-    font-size:5rem;
+    font-size:clamp(3rem,9vw,5.5rem);
 
 }
 
@@ -444,63 +433,59 @@ p{
 
     pointer-events:none;
 
+    opacity:.55;
+
+    mix-blend-mode:screen;
+
     background:
 
     radial-gradient(
-        circle at 20% 40%,
+        circle at 15% 35%,
+        rgba(255,255,255,.12),
+        transparent 35%
+    ),
+
+    radial-gradient(
+        circle at 50% 20%,
         rgba(255,255,255,.08),
-        transparent 40%
+        transparent 30%
     ),
 
     radial-gradient(
         circle at 80% 60%,
-        rgba(255,255,255,.06),
+        rgba(255,255,255,.10),
         transparent 40%
     );
 
-    filter:blur(80px);
-
-    opacity:.5;
+    filter:blur(100px);
 
     animation:
-    fogMove 30s ease-in-out infinite alternate;
+    fogMove 35s ease-in-out infinite alternate;
 
 }
 
-
-
-@keyframes float{
+@keyframes fogMove{
 
     from{
 
         transform:
-        translateY(120vh);
+        translateX(-120px)
+        translateY(-20px);
 
-        opacity:0;
-
-    }
-
-    20%{
-        opacity:1;
-    }
-
-    80%{
-        opacity:1;
     }
 
     to{
 
         transform:
-        translateY(-200px);
-
-        opacity:0;
+        translateX(120px)
+        translateY(20px);
 
     }
 
 }
 
 /* ========================= */
-/* ANIMACION SCROLL */
+/* APARICION DE ESCENAS */
 /* ========================= */
 
 .fade-section{
@@ -508,10 +493,11 @@ p{
     opacity:0;
 
     transform:
-    translateY(80px);
+    translateY(70px);
 
     transition:
-    1.2s ease;
+        opacity 1.6s ease,
+        transform 1.6s ease;
 
 }
 
@@ -530,33 +516,23 @@ p{
 
 @media(max-width:768px){
 
-    h2{
-
-        font-size:3rem;
-
-    }
-
-    .final-box h2{
-
-        font-size:3.5rem;
-
-    }
-
-    p{
-
-        font-size:1.25rem;
-
-    }
-
-    .time-box span{
-
-        font-size:3rem;
-
-    }
-
     .content-box{
 
         padding:25px;
+
+    }
+
+    .btn{
+
+        min-width:220px;
+
+        font-size:1.15rem;
+
+    }
+
+    .time-box{
+
+        min-width:80px;
 
     }
 
@@ -578,7 +554,6 @@ p{
         url("portada-desktop.jpg");
 
         background-size:cover;
-
         background-position:center;
 
     }
