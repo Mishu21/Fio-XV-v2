@@ -81,38 +81,7 @@ updateCountdown();
 setInterval(updateCountdown, 1000);
 
 
-/* ================================= */
-/* PARTICULAS MAGICAS */
-/* ================================= */
 
-const particlesContainer =
-document.getElementById("particles");
-
-for (let i = 0; i < 25; i++) {
-
-    const particle =
-    document.createElement("div");
-
-    particle.classList.add("particle");
-
-    particle.style.left =
-    Math.random() * 100 + "%";
-
-    particle.style.top =
-    Math.random() * 100 + "%";
-
-    particle.style.animationDuration =
-    (8 + Math.random() * 10) + "s";
-
-    particle.style.animationDelay =
-    Math.random() * 10 + "s";
-
-    particle.style.opacity =
-    0.2 + Math.random() * 0.8;
-
-    particlesContainer.appendChild(particle);
-
-}
 
 
 /* ================================= */
