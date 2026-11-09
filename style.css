@@ -165,18 +165,6 @@ main{
 
     padding:40px;
 
-    border-radius:30px;
-
-    background:
-    rgba(5,8,13,.12);
-
-    backdrop-filter:blur(6px);
-
-    -webkit-backdrop-filter:blur(6px);
-
-    border:
-    1px solid rgba(255,255,255,.10);
-
 }
 
 /* ========================= */
