@@ -421,41 +421,7 @@ p{
 
 }
 
-/* ========================= */
-/* PARTICULAS MAGICAS */
-/* ========================= */
 
-#particles{
-
-    position:fixed;
-
-    inset:0;
-
-    pointer-events:none;
-
-    z-index:3;
-
-}
-
-.particle{
-
-    position:absolute;
-
-    width:3px;
-    height:3px;
-
-    border-radius:50%;
-
-    background:white;
-
-    box-shadow:
-    0 0 6px white,
-    0 0 12px rgba(255,255,255,.6);
-
-    animation:
-    float 12s linear infinite;
-
-}
 
 @keyframes float{
 
