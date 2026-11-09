@@ -57,31 +57,30 @@ function updateCountdown() {
     );
 
     const hours = Math.floor(
-        (distance % (1000 * 60 * 60 * 24))
-        / (1000 * 60 * 60)
+        (distance % (1000 * 60 * 60 * 24)) /
+        (1000 * 60 * 60)
     );
 
     const minutes = Math.floor(
-        (distance % (1000 * 60 * 60))
-        / (1000 * 60)
+        (distance % (1000 * 60 * 60)) /
+        (1000 * 60)
     );
 
     const seconds = Math.floor(
-        (distance % (1000 * 60))
-        / 1000
+        (distance % (1000 * 60)) /
+        1000
     );
 
     document.getElementById("days").textContent = days;
     document.getElementById("hours").textContent = hours;
     document.getElementById("minutes").textContent = minutes;
     document.getElementById("seconds").textContent = seconds;
+
 }
 
 updateCountdown();
+
 setInterval(updateCountdown, 1000);
-
-
-
 
 
 /* ================================= */
@@ -91,32 +90,36 @@ setInterval(updateCountdown, 1000);
 function activateAnimations() {
 
     const sections =
-    document.querySelectorAll(".fade-section");
+        document.querySelectorAll(".fade-section");
 
     const observer =
-    new IntersectionObserver(
+        new IntersectionObserver(
 
-        (entries) => {
+            (entries) => {
 
-            entries.forEach(entry => {
+                entries.forEach(entry => {
 
-                if (entry.isIntersecting) {
+                    if (entry.isIntersecting) {
 
-                    entry.target.classList.add(
-                        "visible"
-                    );
+                        entry.target.classList.add(
+                            "visible"
+                        );
 
-                }
+                        observer.unobserve(
+                            entry.target
+                        );
 
-            });
+                    }
 
-        },
+                });
 
-        {
-            threshold: 0.15
-        }
+            },
 
-    );
+            {
+                threshold: 0.15
+            }
+
+        );
 
     sections.forEach(section => {
 
@@ -138,18 +141,20 @@ function copyAlias() {
     );
 
     const button =
-    document.querySelector(".btn-copy, .btn");
+        document.querySelector(".btn-copy");
+
+    if (!button) return;
 
     const originalText =
-    button.innerHTML;
+        button.innerHTML;
 
     button.innerHTML =
-    "✅ Alias Copiado";
+        "Alias copiado";
 
     setTimeout(() => {
 
         button.innerHTML =
-        originalText;
+            originalText;
 
     }, 2500);
 
