@@ -12,6 +12,10 @@ body{
 
     font-family:'Cormorant Garamond', serif;
 
+    font-style:italic;
+
+    font-weight:400;
+
     color:white;
 
     overflow-x:hidden;
@@ -24,6 +28,8 @@ body{
     );
 
 }
+
+
 
 /* ========================= */
 /* PORTADA */
@@ -190,34 +196,48 @@ main{
 /* TITULOS */
 /* ========================= */
 
+/* ========================= */
+/* TITULOS */
+/* ========================= */
+
 h2{
 
-    font-family:
-    'Great Vibes',
-    cursive;
+    font-family:'Great Vibes', cursive;
 
-    font-size:4.5rem;
+    font-size:clamp(3rem,8vw,5rem);
+
+    font-weight:400;
 
     margin-bottom:25px;
 
     color:white;
 
     text-shadow:
-    0 0 8px rgba(255,255,255,.35);
+        0 0 8px rgba(255,255,255,.35);
 
 }
 
 h3{
 
+    font-family:'Cormorant Garamond', serif;
+
+    font-style:italic;
+
     font-size:2rem;
 
-    margin-bottom:10px;
+    font-weight:500;
+
+    margin-bottom:15px;
 
 }
 
 p{
 
-    font-size:1.6rem;
+    font-family:'Cormorant Garamond', serif;
+
+    font-style:italic;
+
+    font-size:clamp(1.35rem,2vw,1.8rem);
 
     line-height:1.8;
 
@@ -251,15 +271,18 @@ p{
 
     display:block;
 
-    font-size:4.5rem;
+    font-family:'Cormorant Garamond', serif;
 
-    font-weight:700;
+    font-style:italic;
+
+    font-size:clamp(3rem,6vw,4.5rem);
+
+    font-weight:600;
 
     color:white;
 
     text-shadow:
-        0 0 20px white,
-        0 0 40px rgba(255,255,255,.5);
+        0 0 12px rgba(255,255,255,.35);
 
 }
 
@@ -269,9 +292,13 @@ p{
 
     margin-top:10px;
 
+    font-family:'Cormorant Garamond', serif;
+
+    font-style:italic;
+
     text-transform:uppercase;
 
-    letter-spacing:3px;
+    letter-spacing:2px;
 
     font-size:1rem;
 
@@ -281,52 +308,71 @@ p{
 /* BOTONES */
 /* ========================= */
 
+/* ========================= */
+/* BOTONES */
+/* ========================= */
+
 .btn{
 
     display:inline-block;
 
-    margin-top:25px;
+    min-width:260px;
 
-    padding:18px 40px;
+    padding:18px 45px;
 
-    border:none;
+    margin-top:30px;
 
-    border-radius:50px;
+    border-radius:999px;
 
-    cursor:pointer;
+    border:
+        1px solid rgba(255,255,255,.16);
 
-    text-decoration:none;
+    background:
+        rgba(255,255,255,.08);
 
-    font-size:1.1rem;
+    backdrop-filter:blur(10px);
+
+    -webkit-backdrop-filter:blur(10px);
 
     color:white;
 
-    background:
-    linear-gradient(
-        135deg,
-        #8f1024,
-        #d7d7d7
-    );
+    text-decoration:none;
 
-    transition:.35s;
+    font-family:'Cormorant Garamond', serif;
+
+    font-style:italic;
+
+    font-size:1.35rem;
+
+    font-weight:500;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    transition:
+        transform .35s ease,
+        background .35s ease,
+        box-shadow .35s ease;
 
 }
 
 .btn:hover{
 
     transform:
-    translateY(-4px);
+        translateY(-3px);
+
+    background:
+        rgba(255,255,255,.15);
 
     box-shadow:
-    0 0 20px rgba(255,255,255,.35);
+        0 10px 25px rgba(255,255,255,.08);
 
 }
 
 .btn-rsvp{
 
-    font-size:1.3rem;
-
-    padding:22px 55px;
+    min-width:320px;
 
 }
 
