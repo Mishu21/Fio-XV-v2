@@ -369,37 +369,35 @@ p{
 /* REGALO */
 /* ========================= */
 
-.gift-label{
+.scene-5 .content-box{
 
-    margin-top:20px;
+    width:min(800px,90%);
 
-    opacity:.8;
-
-    font-size:1.3rem;
+    transform:translateY(-35px);
 
 }
 
-.gift-value{
+.scene-5 p{
 
-    font-size:2.2rem;
+    max-width:700px;
 
-    font-weight:600;
+    margin:0 auto;
 
-    margin:10px 0 20px;
+    font-size:clamp(1.55rem,2.3vw,2rem);
 
-}
-
-.gift-owner{
-
-    margin-top:10px;
-
-    margin-bottom:25px;
+    line-height:1.9;
 
 }
 
 .gift-card{
 
-    margin-top:30px;
+    margin-top:35px;
+
+}
+
+.gift-item{
+
+    margin-bottom:18px;
 
 }
 
@@ -407,20 +405,18 @@ p{
 
     display:block;
 
-    font-size:clamp(1.5rem,2.5vw,2rem);
+    font-family:'Cormorant Garamond', serif;
 
-    font-weight:600;
+    font-style:italic;
+
+    font-size:clamp(1.7rem,2.4vw,2.1rem);
+
+    font-weight:500;
 
     color:white;
 
     text-shadow:
         0 0 10px rgba(255,255,255,.25);
-
-}
-
-.gift-item{
-
-    margin-bottom:15px;
 
 }
 
@@ -432,20 +428,19 @@ p{
 
     font-style:italic;
 
-    font-size:1.1rem;
+    font-size:clamp(1.45rem,2vw,1.8rem);
 
     font-weight:400;
 
-    opacity:.85;
+    color:white;
+
+    opacity:.9;
 
 }
 
-/* Subir el contenido para que no compita
-   visualmente con los faroles y las rosas */
+.btn-copy{
 
-.scene-5 .content-box{
-
-    transform:translateY(-80px);
+    margin-top:35px;
 
 }
 
