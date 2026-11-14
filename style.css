@@ -69,6 +69,27 @@ body{
         transform:scale(1.08);
     }
 
+
+    @keyframes kenBurns{
+
+    from{
+
+        background-size:100%;
+
+        background-position:center center;
+
+    }
+
+    to{
+
+        background-size:110%;
+
+        background-position:center center;
+
+    }
+
+}
+
 }
 
 /* ========================= */
@@ -108,6 +129,9 @@ main{
     background-repeat:no-repeat;
 
     overflow:hidden;
+
+    animation:
+        kenBurns 25s ease-in-out infinite alternate;
 
 }
 
