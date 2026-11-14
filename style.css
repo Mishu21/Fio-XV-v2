@@ -503,10 +503,13 @@ p{
 /* ========================= */
 /* CONFIRMACION */
 /* ========================= */
+/* ========================= */
+/* CONFIRMACION */
+/* ========================= */
 
 .final-box{
 
-    transform:translateY(50px);
+    transform:translateY(80px);
 
 }
 
@@ -516,14 +519,21 @@ p{
 
     margin-bottom:50px;
 
+    line-height:1.25;
+
 }
 
 .final-box p{
 
-    margin-bottom:35px;
+    margin-bottom:40px;
 
 }
 
+.final-box .btn{
+
+    margin-top:50px;
+
+}
 
 /* ========================= */
 /* HUMO */
