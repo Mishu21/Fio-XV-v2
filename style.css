@@ -69,13 +69,13 @@ body{
         transform:scale(1.08);
     }
 
+}
 
-    @keyframes kenBurns{
+@keyframes kenBurns{
 
     from{
 
         background-size:100%;
-
         background-position:center center;
 
     }
@@ -83,14 +83,13 @@ body{
     to{
 
         background-size:110%;
-
         background-position:center center;
 
     }
 
 }
 
-}
+
 
 /* ========================= */
 /* CONTENEDOR */
@@ -500,32 +499,24 @@ p{
 
 }
 
+
 /* ========================= */
 /* CONFIRMACION */
 /* ========================= */
-/* ========================= */
-/* CONFIRMACION */
-/* ========================= */
-
-.final-box{
-
-    transform:translateY(80px);
-
-}
 
 .final-box h2{
 
-    font-size:clamp(3rem,9vw,5.5rem);
+    font-size:clamp(2.6rem,8vw,4.6rem);
 
-    margin-bottom:50px;
+    line-height:1.35;
 
-    line-height:1.25;
+    margin-bottom:70px;
 
 }
 
 .final-box p{
 
-    margin-bottom:40px;
+    margin-bottom:50px;
 
 }
 
@@ -534,6 +525,7 @@ p{
     margin-top:50px;
 
 }
+
 
 /* ========================= */
 /* HUMO */
@@ -545,8 +537,7 @@ p{
 
     inset:0;
 
-    z-index:999;
-    border:5px solid red;
+    z-index:2;
 
     pointer-events:none;
 
@@ -554,32 +545,6 @@ p{
 
     mix-blend-mode:screen;
 
-    background:
-
-    radial-gradient(
-        circle at 15% 35%,
-        rgba(180,220,255,.30),
-        transparent 35%
-    ),
-
-    radial-gradient(
-        circle at 50% 20%,
-        rgba(180,220,255,.30),
-        transparent 30%
-    ),
-
-    radial-gradient(
-        circle at 80% 60%,
-        rgba(180,220,255,.30),
-        transparent 40%
-    );
-
-    filter:blur(60px);
-
-    animation:
-    fogMove 10s ease-in-out infinite alternate;
-
-}
 
 @keyframes fogMove{
 
