@@ -450,7 +450,8 @@ p{
 
     inset:0;
 
-    z-index:2;
+    z-index:999;
+    border:5px solid red;
 
     pointer-events:none;
 
