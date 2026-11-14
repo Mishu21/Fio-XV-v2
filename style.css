@@ -71,21 +71,6 @@ body{
 
 }
 
-@keyframes kenBurns{
-
-    from{
-
-        background-size:100%;
-        background-position:center center;
-
-    }
-
-    to{
-
-        background-size:110%;
-        background-position:center center;
-
-    }
 
 }
 
@@ -128,9 +113,6 @@ main{
     background-repeat:no-repeat;
 
     overflow:hidden;
-
-    animation:
-        kenBurns 25s ease-in-out infinite alternate;
 
 }
 
@@ -527,42 +509,44 @@ p{
 }
 
 
-/* ========================= */
-/* HUMO */
-/* ========================= */
-
-.fog{
+.*og{
 
     position:fixed;
 
-    inset:0;
+    inse*:0;
 
     z-index:2;
 
-    pointer-events:none;
+    pointer-e*ents:none;
 
     opacity:.55;
 
-    mix-blend-mode:screen;
+    *ix-blend-mode:screen;
 
+    backgro*nd:
 
-@keyframes fogMove{
+    radial-gradient(
+        *ircle at 15% 35%,
+        rgba(255*255,255,.12),
+        transparent *5%
+    ),
 
-    from{
+    radial-gradient(
+  *     circle at 50% 20%,
+        rg*a(255,255,255,.08),
+        transp*rent 30%
+    ),
 
-        transform:
-        translateX(-120px)
-        translateY(-20px);
+    radial-gradie*t(
+        circle at 80% 60%,
+    *   rgba(255,255,255,.10),
+        *ransparent 40%
+    );
 
-    }
+    filter:*lur(100px);
 
-    to{
-
-        transform:
-        translateX(120px)
-        translateY(20px);
-
-    }
+    animation:
+      * fogMove 35s ease-in-out infinite *lternate;
 
 }
 
