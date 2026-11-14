@@ -2,19 +2,31 @@
 /* APERTURA DE LA INVITACION */
 /* ================================= */
 
-const cover = document.getElementById("cover");
-const invitationContent = document.getElementById("invitationContent");
+const cover =
+    document.getElementById("cover");
+
+const invitationContent =
+    document.getElementById(
+        "invitationContent"
+    );
 
 cover.addEventListener("click", () => {
 
-    cover.style.transition = "opacity 1.5s ease";
+    cover.style.transition =
+        "opacity 1.5s ease, transform 1.5s ease";
+
     cover.style.opacity = "0";
+
+    cover.style.transform =
+        "scale(1.08)";
 
     setTimeout(() => {
 
-        cover.style.display = "none";
+        cover.style.display =
+            "none";
 
-        invitationContent.style.display = "block";
+        invitationContent.style.display =
+            "block";
 
         activateAnimations();
 
@@ -27,7 +39,6 @@ cover.addEventListener("click", () => {
 
 });
 
-
 /* ================================= */
 /* CUENTA REGRESIVA */
 /* ================================= */
@@ -36,73 +47,160 @@ const targetDate = new Date(
     "March 27, 2027 21:00:00"
 ).getTime();
 
+function animateValue(id, value) {
+
+    const element =
+        document.getElementById(id);
+
+    if (!element) return;
+
+    if (
+        element.textContent !==
+        String(value)
+    ) {
+
+        element.style.opacity = "0";
+
+        setTimeout(() => {
+
+            element.textContent =
+                value;
+
+            element.style.opacity =
+                "1";
+
+        }, 150);
+
+    }
+
+}
+
 function updateCountdown() {
 
-    const now = new Date().getTime();
+    const now =
+        new Date().getTime();
 
-    const distance = targetDate - now;
+    const distance =
+        targetDate - now;
 
     if (distance <= 0) {
 
-        document.getElementById("days").textContent = "0";
-        document.getElementById("hours").textContent = "0";
-        document.getElementById("minutes").textContent = "0";
-        document.getElementById("seconds").textContent = "0";
+        animateValue("days", 0);
+        animateValue("hours", 0);
+        animateValue("minutes", 0);
+        animateValue("seconds", 0);
 
         return;
+
     }
 
     const days = Math.floor(
-        distance / (1000 * 60 * 60 * 24)
+        distance /
+        (1000 * 60 * 60 * 24)
     );
 
     const hours = Math.floor(
-        (distance % (1000 * 60 * 60 * 24)) /
+        (
+            distance %
+            (1000 * 60 * 60 * 24)
+        ) /
         (1000 * 60 * 60)
     );
 
     const minutes = Math.floor(
-        (distance % (1000 * 60 * 60)) /
+        (
+            distance %
+            (1000 * 60 * 60)
+        ) /
         (1000 * 60)
     );
 
     const seconds = Math.floor(
-        (distance % (1000 * 60)) /
+        (
+            distance %
+            (1000 * 60)
+        ) /
         1000
     );
 
-    document.getElementById("days").textContent = days;
-    document.getElementById("hours").textContent = hours;
-    document.getElementById("minutes").textContent = minutes;
-    document.getElementById("seconds").textContent = seconds;
+    animateValue("days", days);
+    animateValue("hours", hours);
+    animateValue("minutes", minutes);
+    animateValue("seconds", seconds);
 
 }
 
 updateCountdown();
 
-setInterval(updateCountdown, 1000);
-
+setInterval(
+    updateCountdown,
+    1000
+);
 
 /* ================================= */
-/* ANIMACION DE SECCIONES */
+/* APARICION ESCALONADA */
 /* ================================= */
 
 function activateAnimations() {
 
     const sections =
-        document.querySelectorAll(".fade-section");
+        document.querySelectorAll(
+            ".fade-section"
+        );
 
     const observer =
         new IntersectionObserver(
 
-            (entries) => {
+            entries => {
 
-                entries.forEach(entry => {
+                entries.forEach(
+                    entry => {
 
-                    if (entry.isIntersecting) {
+                        if (
+                            !entry.isIntersecting
+                        ) return;
 
-                        entry.target.classList.add(
-                            "visible"
+                        entry.target
+                            .classList
+                            .add("visible");
+
+                        const items =
+                            entry.target.querySelectorAll(
+                                "h2, h3, p, .btn, .time-box, .gift-card"
+                            );
+
+                        items.forEach(
+                            (
+                                item,
+                                index
+                            ) => {
+
+                                item.animate(
+                                    [
+                                        {
+                                            opacity: 0,
+                                            transform:
+                                                "translateY(25px)"
+                                        },
+                                        {
+                                            opacity: 1,
+                                            transform:
+                                                "translateY(0)"
+                                        }
+                                    ],
+                                    {
+                                        duration: 900,
+                                        delay:
+                                            index *
+                                            120,
+                                        easing:
+                                            "ease-out",
+                                        fill:
+                                            "forwards"
+                                    }
+                                );
+
+                            }
                         );
 
                         observer.unobserve(
@@ -110,8 +208,7 @@ function activateAnimations() {
                         );
 
                     }
-
-                });
+                );
 
             },
 
@@ -121,14 +218,67 @@ function activateAnimations() {
 
         );
 
-    sections.forEach(section => {
-
-        observer.observe(section);
-
-    });
+    sections.forEach(
+        section =>
+            observer.observe(
+                section
+            )
+    );
 
 }
 
+/* ================================= */
+/* PARALLAX SUAVE MOBILE FRIENDLY */
+/* ================================= */
+
+let ticking = false;
+
+function updateParallax() {
+
+    const isMobile =
+        window.innerWidth <= 768;
+
+    const speed =
+        isMobile
+            ? 0.05
+            : 0.12;
+
+    document
+        .querySelectorAll(".scene")
+        .forEach(scene => {
+
+            const rect =
+                scene.getBoundingClientRect();
+
+            const offset =
+                rect.top * speed;
+
+            scene.style.backgroundPosition =
+                `center ${offset}px`;
+
+        });
+
+    ticking = false;
+
+}
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        if (!ticking) {
+
+            requestAnimationFrame(
+                updateParallax
+            );
+
+            ticking = true;
+
+        }
+
+    },
+    { passive: true }
+);
 
 /* ================================= */
 /* COPIAR ALIAS */
@@ -136,26 +286,32 @@ function activateAnimations() {
 
 function copyAlias() {
 
-    navigator.clipboard.writeText(
-        "fydiaz.27.mp"
-    );
+    navigator.clipboard
+        .writeText(
+            "fydiaz.27.mp"
+        )
+        .then(() => {
 
-    const button =
-        document.querySelector(".btn-copy");
+            const button =
+                document.querySelector(
+                    ".btn-copy"
+                );
 
-    if (!button) return;
+            if (!button) return;
 
-    const originalText =
-        button.innerHTML;
+            const originalText =
+                button.innerHTML;
 
-    button.innerHTML =
-        "Alias copiado";
+            button.innerHTML =
+                "✨ Alias copiado";
 
-    setTimeout(() => {
+            setTimeout(() => {
 
-        button.innerHTML =
-            originalText;
+                button.innerHTML =
+                    originalText;
 
-    }, 2500);
+            }, 2500);
+
+        });
 
 }
