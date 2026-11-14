@@ -481,7 +481,7 @@ p{
     filter:blur(100px);
 
     animation:
-    fogMove 35s ease-in-out infinite alternate;
+    fogMove 10s ease-in-out infinite alternate;
 
 }
 
